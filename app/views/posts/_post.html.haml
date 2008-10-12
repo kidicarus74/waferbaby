@@ -1,12 +1,13 @@
 .post{:id => 'post-' + @post.id.to_s}
-  .shelf
-    %p.date
-      %a{:href => date_url_for(@post, 'posts'), :title => "View all posts from #{@post.created_month_short_name} #{@post.created_day}, #{@post.created_year}."}
-        %span.month= @post.created_month_short_name
-        %span.day= @post.created_day
-        %span.year= @post.created_year
+  %p.date
+    %a{:href => date_url_for(@post, 'posts'), :title => "View all posts from #{@post.created_month_short_name} #{@post.created_day}, #{@post.created_year}."}
+      %span.month= @post.created_month_short_name
+      %span.day= @post.created_day
+      %span.year= @post.created_year
   .contents
     %h3= @post.is_selected ? @post.title : link_to(@post.title, url(:post, @post), :title => "View '#{h(@post.title)}'.")
     = markup(@post.contents)
     - if @post.categories.length > 0
-      %p.categories= link_to_post_categories(@post)
+      %p.categories
+        Posted under
+        = link_to_post_categories(@post)
