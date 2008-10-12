@@ -28,10 +28,7 @@
               = link_to("Log out", url(:logout), :title => "Don't leave me!")
       #content
         = catch_content :for_layout
-      #sidebar
-        %h2 Recently
-        = part(NotePart => :index)
-      %p#footer
-        This is waferbaby
-        = "(", link_to("More", url(:about), :title => "The most useless page like, wow, evar."), ")."
-        Sorry about that.
+    %p#footer
+      This is waferbaby
+      = "(", link_to("More", url(:about), :title => "The most useless page like, wow, evar."), ")."
+      Sorry about that.
