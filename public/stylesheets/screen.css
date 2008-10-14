@@ -143,6 +143,11 @@ font-size: 80%;
 color: #777;
 }
 
+textarea {
+width: 100%;
+height: 120px;
+}
+
 ul#navigation {
 list-style: none inside;
 padding: 0;
