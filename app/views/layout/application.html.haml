@@ -10,13 +10,14 @@
       %link{:href => "http://waferbaby.com" + catch_content(:atom_feed) + ".atom", :type => 'application/atom+xml', :rel => 'alternate', :title => "Atom feed"}
   %body
     #header
-      %h1
-        = link_to("waferbaby", url(:posts), :title => "View the latest drivel.")
+      %h1 waferbaby
       %ul#navigation
+        %li.read
+          = link_to("Read", url(:posts), :title => "View the latest drivel.")
         %li.wallscrawl
           = link_to("'scrawl", url(:wallscrawl), :title => "The voice of the unwashed masses.")
         %li.people
-          = link_to("Stalk people", url(:people), :title => "Them humans what make the site good.")
+          = link_to("Stalk", url(:people), :title => "Them humans what make the site good.")
         - unless logged_in?
           %li.login
             = link_to("Log in", url(:login), :title => "Sign into your account.")
@@ -28,6 +29,6 @@
     #content
       = catch_content :for_layout
     %p#footer
-      This is waferbaby
+      We eat bandwidth for breakfast
       = "(", link_to("More", url(:about), :title => "The most useless page like, wow, evar."), ")."
       Sorry about that.
