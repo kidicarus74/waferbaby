@@ -35,7 +35,12 @@ font-size: 150%;
 
 div.post, div.scrawl {
 clear: both;
-padding-bottom: 40px;
+padding: 15px 0;
+border-top: solid 1px #eee;
+}
+
+div.post:first-child {
+border: 0;
 }
 
 div.post div.contents, div.scrawl div.contents {
@@ -59,11 +64,16 @@ width: 100%;
 
 h2 {
 padding: 0 0 5px 0;
-margin: 10px 0 20px 0;
+margin: 10px 0 10px 0;
 text-transform: uppercase;
 font-size: 130%;
 color: #444;
 border-bottom: solid 1px #ddd;
+}
+
+h2 + div.post, h2 + div.scrawl {
+padding-top: 10px;
+border-top: 0;
 }
 
 h3 {
