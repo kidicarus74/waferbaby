@@ -20,11 +20,11 @@ color: #000;
 div#content {
 clear: both;
 max-width: 550px;
-padding: 210px 40px 50px 40px;
+padding: 20px 40px 50px 40px;
 }
 
 div#header {
-position: fixed;
+float: left;
 width: 100%;
 text-transform: uppercase;
 background-color: #000;
