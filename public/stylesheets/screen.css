@@ -20,11 +20,11 @@ color: #000;
 div#content {
 clear: both;
 max-width: 550px;
-padding: 15px 40px 50px 40px;
+padding: 210px 40px 50px 40px;
 }
 
 div#header {
-float: left;
+position: fixed;
 width: 100%;
 text-transform: uppercase;
 background-color: #000;
@@ -168,6 +168,8 @@ margin: 0;
 ul#navigation li a {
 float: left;
 display: block;
+width: 12%;
+text-align: center;
 padding: 150px 15px 15px 15px;
 color: #fff;
 border-right: solid 1px #333;
