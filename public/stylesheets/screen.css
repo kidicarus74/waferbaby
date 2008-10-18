@@ -39,7 +39,7 @@ padding-bottom: 40px;
 }
 
 div.post div.contents, div.scrawl div.contents {
-margin-left: 55px;
+margin-left: 70px;
 }
 
 form {
@@ -68,7 +68,7 @@ border-bottom: solid 1px #ddd;
 
 h3 {
 display: inline;
-color: #0099ff;
+color: #000;
 font-size: 100%;
 }
 
@@ -104,6 +104,16 @@ padding: 0;
 margin: 0 0 10px 0;
 text-transform: uppercase;
 text-align: center;
+}
+
+p.date.small a {
+width: 60px;
+font-size: 85%;
+padding-top: 2px;
+}
+
+p.date.small span {
+font-size: 100% !important;
 }
 
 p.date a {
