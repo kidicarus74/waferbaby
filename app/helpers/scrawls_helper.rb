@@ -1,5 +1,5 @@
 module Merb
-  module WallscrawlHelper
+  module ScrawlsHelper
 
   end
 end # Merb

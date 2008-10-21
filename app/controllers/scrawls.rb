@@ -1,4 +1,4 @@
-class Wallscrawl < Application
+class Scrawls < Application
 
         before :login_required, :only => [:new, :edit, :delete, :create, :update, :destroy]
         provides :atom, :text, :xml
