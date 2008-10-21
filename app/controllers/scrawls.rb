@@ -48,15 +48,9 @@ class Wallscrawl < Application
                 @scrawl = Scrawl.new(params[:scrawl])
                 @scrawl.person = current_person
                 
-                @show_preview = !params[:preview].nil?
-                
-                if !@show_preview && @scrawl.save
+                if @scrawl.save
                         redirect url(:wallscrawl)
                 else
-                        if @show_preview
-                                @scrawl.created_at = @scrawl.updated_at = Time.now
-                        end
-                        
                         render :new
                 end
         end
