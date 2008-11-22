@@ -1,6 +1,6 @@
 - unless @scrawls.length < 1
   - throw_content :atom_feed, "/wallscrawl"
-  %h2= "Scrawls (" + link_to("Add", url(:new_wallscrawl)) + ")"
+  %h2= "Scrawls (" + link_to("Add", url(:new_scrawl)) + ")"
   - @scrawls.each do |@scrawl|
     = partial :scrawl
 - else
