@@ -49,7 +49,7 @@ class Scrawls < Application
                 @scrawl.person = current_person
                 
                 if @scrawl.save
-                        redirect url(:wallscrawl)
+                        redirect url(:scrawls)
                 else
                         render :new
                 end
