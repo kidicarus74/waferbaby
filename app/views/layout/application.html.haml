@@ -13,9 +13,9 @@
       %h1 waferbaby
       %ul#navigation
         %li.read
-          = link_to("Read", url(:posts), :title => "View the latest drivel.")
+          = link_to("Read", url(:default), :title => "View the latest drivel.")
         %li.wallscrawl
-          = link_to("'scrawl", url(:wallscrawl), :title => "The voice of the unwashed masses.")
+          = link_to("Scrawl", url(:scrawls), :title => "The voice of the unwashed masses.")
         %li.people
           = link_to("Stalk", url(:people), :title => "Them humans what make the site good.")
         - unless logged_in?
