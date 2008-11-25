@@ -56,7 +56,7 @@ div#header {
 float: left;
 width: 100%;
 text-transform: uppercase;
-background-color: #111;
+background-color: #000;
 color: #fff;
 border-bottom: solid 1px #aaa;
 font-size: 150%;
@@ -168,7 +168,4 @@ ul#people {
 list-style: none inside;
 padding: 0;
 margin: 0;
-}
-
-ul#people li {
 }
