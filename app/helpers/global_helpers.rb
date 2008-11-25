@@ -23,6 +23,20 @@ module Merb
                         tag('ul', messages, :class => error_class)
                 end
                 
+		def date_title
+			dt = Time.utc(params["created_year"], params["created_month"], params["created_day"])
+			
+			if params["created_day"]
+				result = dt.strftime("%B %d, %Y")
+			elsif params["created_month"]
+				result = dt.strftime("%B %Y")
+			else
+				result = dt.strftime("%Y")
+			end
+			
+			result
+		end
+		
                 def date_url_for(object, prefix)
                         "/#{prefix}/#{object.created_year}/#{object.created_month}/#{object.created_day}"
                 end
