@@ -1,14 +1,19 @@
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
+
+	# general routes.
+	
         match('/about').to(:controller => 'help', :action => 'show_about').name(:about)
         match('/login').to(:controller => 'sessions', :action => 'new').name(:login)
         match('/logout').to(:controller => 'sessions', :action => 'destroy').name(:logout)
         match('/signup').to(:controller => 'people', :action => 'new').name(:signup)
 
-        match(%r'/([a-z]+)/([0-9]{4,})/([0-9]{2,})/([0-9]{2,})').to(:controller => '[1]', :action => 'index_by_date', :created_year => '[2]', :created_month => '[3]', :created_day => '[4]')
-        match(%r'/([a-z]+)/([0-9]{4,})/([0-9]{2,})').to(:controller => '[1]', :action => 'index_by_date', :created_year => '[2]', :created_month => '[3]')
-        match(%r'/([a-z]+)/([0-9]{4,})').to(:controller => '[1]', :action => 'index_by_date', :created_year => '[2]')
-        
+	# special case for wallscrawl dates.
+
+	match("/wallscrawl/:created_year(/:created_month(/:created_day))", :created_year => /\d{4,}/, :created_month => /\d{2,}/, :created_day => /\d{2,}/).to(:controller => 'scrawls', :action => 'index_by_date')
+
+	# resource routes.
+	
 	identify Person => :username do
         	resources(:people)
 	end
@@ -18,8 +23,14 @@ Merb::Router.prepare do
 	end
 
 	identify Scrawl => [:created_year, :created_month, :created_day] do
-        	resources(:scrawls)
+        	resources(:scrawls, :path => 'wallscrawl')
 	end
         
+	# flexible route for any index_by_date calls.
+
+	match("/:controller/:created_year(/:created_month(/:created_day))", :created_year => /\d{4,}/, :created_month => /\d{2,}/, :created_day => /\d{2,}/).to(:action => 'index_by_date')	
+
+	# default.
+
         match('/').to(:controller => 'posts', :action => 'index').name(:default)
 end
