@@ -34,7 +34,7 @@ class Comments < Application
 		
 		@post.comments << @comment
 		
-		if @post.save
+		if @comment.valid? && @post.save
 			redirect resource(@post) + "/#from-#{@comment.person.username}-at-#{@comment.created_time}"
 		else
 			render :new
