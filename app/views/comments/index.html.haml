@@ -1,0 +1,7 @@
+- unless @comments.length < 1
+  %h2 Comments
+  - @comments.each do |@comment|
+    = partial :comment
+- else
+  %h2 Aw, I'm sorry!
+  %p There's no comments here.

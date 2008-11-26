@@ -1,0 +1,8 @@
+.comment{:id => "from-#{@comment.person.username}-at-#{@comment.created_time}"}
+  %h3
+    %a.date{:href => url(:post, @comment.post) + "/#from-#{@comment.person.username}-at-#{@comment.created_time}", :title => "Permalink for this comment."}
+      %span.month= @comment.created_month_short_name
+      %span.day= @comment.created_day
+    = link_to("#{@comment.person.username}", url(:person, @comment.person), :title => "View more about '#{h(@comment.person.username)}'.")
+  .contents
+    = markup(@comment.contents)
