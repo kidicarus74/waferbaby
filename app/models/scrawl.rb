@@ -1,3 +1,8 @@
+#
+# =>    scrawl.rb
+# =>    Copyright (c) 2008 Daniel Bogan. http://waferbaby.com/
+#
+
 class Scrawl
         include DataMapper::Resource
         include DataMapper::Timestamp
