@@ -10,4 +10,6 @@ class Comment
         
         belongs_to :person
         belongs_to :post
+
+	validates_present       :contents
 end
