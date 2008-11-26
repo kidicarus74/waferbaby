@@ -19,7 +19,9 @@ Merb::Router.prepare do
 	end
 
 	identify Post => [:created_year, :created_month, :created_day, :slug] do
-		resources(:posts)
+		resources(:posts) do |p|
+			p.resources(:comments)
+		end
 	end
 
 	identify Scrawl => [:created_year, :created_month, :created_day] do
