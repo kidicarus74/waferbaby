@@ -4,7 +4,7 @@
     Scrawls
     - if params["created_year"]
       = "from #{date_title}"
-    = " (" + link_to("Add", url(:new_scrawl)) + ")"
+    = " (" + link_to("Add", resource(:scrawls, :new)) + ")"
   - @scrawls.each do |@scrawl|
     = partial :scrawl
 - else
