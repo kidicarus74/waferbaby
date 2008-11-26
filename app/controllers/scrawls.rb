@@ -1,3 +1,8 @@
+#
+# =>    scrawls.rb
+# =>    Copyright (c) 2008 Daniel Bogan. http://waferbaby.com/
+#
+
 class Scrawls < Application
 
         before :login_required, :only => [:new, :edit, :delete, :create, :update, :destroy]

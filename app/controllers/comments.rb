@@ -1,3 +1,8 @@
+#
+# =>    comments.rb
+# =>    Copyright (c) 2008 Daniel Bogan. http://waferbaby.com/
+#
+
 class Comments < Application
 	def index
 		@comments = Comment.all
