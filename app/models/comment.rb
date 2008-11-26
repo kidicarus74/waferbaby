@@ -1,3 +1,8 @@
+#
+# =>    comment.rb
+# =>    Copyright (c) 2008 Daniel Bogan. http://waferbaby.com/
+#
+
 class Comment
         include DataMapper::Resource
         include DataMapper::Timestamp
