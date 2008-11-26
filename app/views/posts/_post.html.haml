@@ -3,6 +3,14 @@
     %a.date{:href => date_url_for(@post, 'posts'), :title => "View all posts from #{@post.created_month_short_name} #{@post.created_day}, #{@post.created_year}."}
       %span.month= @post.created_month_short_name
       %span.day= @post.created_day
-    = @post.is_selected ? @post.title : link_to(@post.title, url(:post, @post), :title => "View '#{h(@post.title)}'.")    
+    = @post.is_selected ? @post.title : link_to(@post.title, resource(@post), :title => "View '#{h(@post.title)}'.")    
   .contents
     = markup(@post.contents)
+  - if @post.is_selected
+    .comments
+      %h2= "Comments (" + link_to("Add", url(:new_post_comment)) + ")"
+      - unless @post.comments.length < 1
+        - @post.comments.each do |@comment|
+          = partial 'comments/comment'
+      - else
+        %p Be the first to comment!
