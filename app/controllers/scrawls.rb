@@ -49,7 +49,7 @@ class Scrawls < Application
                 @scrawl.person = current_person
                 
                 if @scrawl.save
-                        redirect url(:scrawls)
+                        redirect resource(:scrawls)
                 else
                         render :new
                 end
@@ -62,7 +62,7 @@ class Scrawls < Application
                 raise BadRequest unless @scrawl.person == current_person
                 
                 if @scrawl.update_attributes(params[:scrawl]) || !@scrawl.dirty?
-                        redirect url(:scrawl, @scrawl)
+                        redirect resource(@scrawl)
                 else
                         raise BadRequest
                 end
@@ -75,7 +75,7 @@ class Scrawls < Application
                 raise BadRequest unless @scrawl.person == current_person
                 
                 if @scrawl.destroy
-                        redirect url(:scrawl)
+                        redirect resource(:scrawls)
                 else
                         raise BadRequest
                 end
