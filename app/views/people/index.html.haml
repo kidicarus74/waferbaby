@@ -3,7 +3,7 @@
   %ul#people
     - @people.each do |@person|
       %li
-        = link_to(@person.username, url(:person, @person))
+        = link_to(@person.username, resource(@person))
 - else
   %h2 Aw, I'm sorry!
   %p There's no one here.
