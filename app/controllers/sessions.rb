@@ -1,3 +1,8 @@
+#
+# =>    sessions.rb
+# =>    Copyright (c) 2008 Daniel Bogan. http://waferbaby.com/
+#
+
 class Sessions < Application
 
         def new

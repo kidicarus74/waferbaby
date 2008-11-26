@@ -1,3 +1,8 @@
+#
+# =>    application.rb
+# =>    Copyright (c) 2008 Daniel Bogan. http://waferbaby.com/
+#
+
 class Application < Merb::Controller
 
         protected                      

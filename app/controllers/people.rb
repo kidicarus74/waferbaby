@@ -1,3 +1,8 @@
+#
+# =>    people.rb
+# =>    Copyright (c) 2008 Daniel Bogan. http://waferbaby.com/
+#
+
 class People < Application
         # provides :xml, :yaml, :js
 
