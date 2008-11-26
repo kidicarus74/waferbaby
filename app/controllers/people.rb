@@ -22,7 +22,7 @@ class People < Application
         def create
                 @person = Person.new(params[:person])
                 if @person.save
-                        redirect url(:person, @person)
+                        redirect resource(@person)
                 else
                         render :new
                 end
@@ -32,7 +32,7 @@ class People < Application
                 @person = Person.get(params[:username])
                 raise NotFound unless this_is_me(@person)
                 if @person.destroy
-                        redirect url(:person)
+                        redirect resource(:people)
                 else
                         raise BadRequest
                 end
