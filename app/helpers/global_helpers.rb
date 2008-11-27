@@ -22,6 +22,10 @@ module Merb
                         messages = "\n", object.errors.full_messages.collect { |message| tag('li', message) }.join("\n"), "\n"                        
                         tag('ul', messages, :class => error_class)
                 end
+
+		def summary(str)
+			str.slice(/^(.+)\n\n/).strip
+		end
                 
 		def date_title
 			dt = Time.utc(params["created_year"], params["created_month"], params["created_day"])
