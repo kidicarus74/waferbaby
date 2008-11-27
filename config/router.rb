@@ -12,6 +12,10 @@ Merb::Router.prepare do
 
 	match("/wallscrawl/:created_year(/:created_month(/:created_day))", :created_year => /\d{4,}/, :created_month => /\d{2,}/, :created_day => /\d{2,}/).to(:controller => 'scrawls', :action => 'index_by_date')
 
+	# flexible route for any index_by_date calls.
+
+	match("/:controller/:created_year(/:created_month(/:created_day))", :created_year => /\d{4,}/, :created_month => /\d{2,}/, :created_day => /\d{2,}/).to(:action => 'index_by_date')	
+
 	# resource routes.
 	
 	identify Person => :username do
@@ -28,10 +32,6 @@ Merb::Router.prepare do
         	resources(:scrawls, :path => 'wallscrawl')
 	end
         
-	# flexible route for any index_by_date calls.
-
-	match("/:controller/:created_year(/:created_month(/:created_day))", :created_year => /\d{4,}/, :created_month => /\d{2,}/, :created_day => /\d{2,}/).to(:action => 'index_by_date')	
-
 	# default.
 
         match('/').to(:controller => 'posts', :action => 'index').name(:default)
