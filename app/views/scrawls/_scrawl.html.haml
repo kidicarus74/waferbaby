@@ -1,6 +1,6 @@
-.scrawl{:id => "from-#{@scrawl.person.username}-at-#{@scrawl.created_time}"}
+.scrawl{:id => "at-#{@scrawl.created_time}"}
   %h3
-    %a.date{:href => date_url_for(@scrawl, 'wallscrawl') + "#from-#{@scrawl.person.username}-at-#{@scrawl.created_time}", :title => "Permalink for this scrawl."}
+    %a.date{:href => date_url_for(@scrawl, 'wallscrawl') + "#at-#{@scrawl.created_time}", :title => "Permalink for this scrawl."}
       %span.month= @scrawl.created_month_short_name
       %span.day= @scrawl.created_day  
     = link_to("#{@scrawl.person.username}", url(:person, @scrawl.person), :title => "View more about '#{h(@scrawl.person.username)}'.")
