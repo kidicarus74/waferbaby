@@ -10,10 +10,13 @@
   %p.summary
     = "There #{@post.comments.length == 1 ? "is" : "are"} #{link_to("#{@post.comments.length == 0 ? 'no' : @post.comments.length} comment#{'s' if @post.comments.length != 1}", resource(@post) + "#comments")} on this post."
   .contents
-    = @post.is_selected ? markup(@post.contents) : markup(summary(@post.contents))
+    - if @post.is_selected
+      = markup(@post.contents)
+    - else
+      = markup(summary(@post.contents) + " [More...](#{resource(@post)} \"Read the full post.\")")
   - if @post.is_selected
     #comments
-      %h2= "Comments (" + link_to("Add", url(:new_post_comment)) + ")"
+      %h2= "Comments (#{link_to("Add", url(:new_post_comment), :title => "Add a comment.")})"
       - unless @post.comments.length < 1
         - @post.comments.each do |@comment|
           = partial 'comments/comment'
