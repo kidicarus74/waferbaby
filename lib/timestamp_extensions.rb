@@ -17,7 +17,7 @@ module DataMapper
                 end
                 
                 def created_time
-                        created_at.strftime('%I:%M%p')
+                        created_at.strftime('%I:%M:%S%p')
                 end
         end
 end
