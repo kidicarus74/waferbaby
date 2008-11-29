@@ -1,0 +1,8 @@
+.person
+  %h3
+    %a.date{:href => date_url_for(@person, 'people'), :title => "View people who signed up on x y z."}
+      %span.month= @person.created_month_short_name
+      %span.day= @person.created_day  
+    = link_to("#{@person.username}", resource(@person), :title => "View more about '#{h(@person.username)}'.")
+  .contents
+    %p Summary goes here, eventually.
