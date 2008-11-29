@@ -1,9 +1,12 @@
 - unless @people.length < 1
-  %h2 Peeps
-  %ul#people
-    - @people.each do |@person|
-      %li
-        = link_to(@person.username, resource(@person))
+  %h2
+    People
+    - if params["character"]
+      = "whose username starts with '#{params["character"]}'"
+    - elsif params["created_year"]
+      = "who signed up #{params["created_day"] ? 'on' : 'in'} #{date_title}"
+  - @people.each do |@person|
+    = partial :person
 - else
   %h2 Aw, I'm sorry!
   %p There's no one here.
