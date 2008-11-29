@@ -15,6 +15,10 @@ Merb::Router.prepare do
 	# flexible route for any index_by_date calls.
 
 	match("/:controller/:created_year(/:created_month(/:created_day))", :created_year => /\d{4,}/, :created_month => /\d{2,}/, :created_day => /\d{2,}/).to(:action => 'index_by_date')	
+	
+	# for browsing people via a letter/number.
+	
+	match("/people/:character", :character => /^[A-Za-z0-9]$/).to(:controller => 'people', :action => 'index_by_letter_or_number')	
 
 	# resource routes.
 	
