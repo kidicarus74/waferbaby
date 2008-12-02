@@ -1,18 +1,16 @@
 !!! Strict
 %html{html_attrs}
   %head
-    %title
-      waferbaby
-      - if catch_content(:title)
-        = catch_content(:title)
+    %title= "waferbaby#{" : " + catch_content(:title) unless catch_content(:title).blank?}"
     = css_include_tag :screen, :media => :screen
-    - if catch_content(:atom_feed)
+    = css_include_tag :mobile, :media => "only screen and (max-device-width: 480px)"
+    - unless catch_content(:atom_feed).blank?
       %link{:href => "http://waferbaby.com" + catch_content(:atom_feed) + ".atom", :type => 'application/atom+xml', :rel => 'alternate', :title => "Atom feed"}
   %body
     #header
       %h1 waferbaby
       %ul#navigation
-        %li.read
+        %li.posts
           = link_to("Read", url(:default), :title => "View the latest drivel.")
         %li.wallscrawl
           = link_to("Scrawl", url(:scrawls), :title => "The voice of the unwashed masses.")
