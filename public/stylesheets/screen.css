@@ -53,7 +53,7 @@ margin-top: 30px;
 
 div#content {
 float: left;
-max-width: 700px;
+width: 700px;
 padding: 20px 20px 50px 40px;
 }
 
@@ -126,6 +126,14 @@ font-size: 70%;
 padding: 0;
 margin: 10px 40px 20px 40px;
 color: #888;
+}
+
+p#message {
+background-color: #eee;
+padding: 10px;
+margin-bottom: 20px;
+font-size: 80%;
+border: solid 1px #ccc;
 }
 
 p.summary {
