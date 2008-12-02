@@ -4,6 +4,7 @@
     %title= "waferbaby#{" : " + catch_content(:title) unless catch_content(:title).blank?}"
     = css_include_tag :screen, :media => :screen
     = css_include_tag :mobile, :media => "only screen and (max-device-width: 480px)"
+    %meta{:name => "viewport", :content => "width=760"}
     - unless catch_content(:atom_feed).blank?
       %link{:href => "http://waferbaby.com" + catch_content(:atom_feed) + ".atom", :type => 'application/atom+xml', :rel => 'alternate', :title => "Atom feed"}
   %body
@@ -25,6 +26,8 @@
           %li.logout
             = link_to("Log out", url(:logout), :title => "Don't leave me!")
     #content
+      - unless session[:message].blank?
+        %p#message= session_message 
       = catch_content :for_layout
     %p#footer
       We eat bandwidth for breakfast
