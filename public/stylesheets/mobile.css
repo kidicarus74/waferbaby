@@ -1,0 +1,43 @@
+a.date {
+width: 60px;
+font-size: 80%;
+margin-right: 40px;
+}
+
+body {
+-webkit-text-size-adjust: 270%;
+}
+
+div#content {
+max-width: 100%;
+padding: 40px;
+}
+
+div.contents {
+margin-left: 110px;
+}
+
+p.summary {
+font-size: 80%;
+}
+
+h1 {
+float: none;
+padding: 20px;
+}
+
+h2 {
+font-size: 100%;
+}
+
+h3 {
+font-size: 110%;
+}
+
+ul#navigation {
+border-top: solid 1px #555;
+}
+ul#navigation li a {
+width: auto;
+padding: 20px;
+}
