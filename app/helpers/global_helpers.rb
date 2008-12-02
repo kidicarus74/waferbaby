@@ -26,6 +26,13 @@ module Merb
 		def summary(str)
 			str.slice(/^(.+)\n\n/).strip
 		end
+		
+		def session_message
+			message = session[:message]
+			session[:message] = nil
+			
+			message
+		end
                 
 		def date_title
 			dt = Time.utc(params["created_year"], params["created_month"], params["created_day"])
