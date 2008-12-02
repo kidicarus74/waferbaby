@@ -1,3 +1,7 @@
+a {
+-webkit-tap-highlight-color: #0099ff;
+}
+
 a.date {
 width: 60px;
 font-size: 80%;
@@ -5,12 +9,7 @@ margin-right: 40px;
 }
 
 body {
--webkit-text-size-adjust: 270%;
-}
-
-div#content {
-max-width: 100%;
-padding: 40px;
+-webkit-text-size-adjust: 240%;
 }
 
 div.contents {
@@ -34,10 +33,20 @@ h3 {
 font-size: 110%;
 }
 
+input[type=password], input[type=text]{
+-webkit-border-radius: 10px;
+}
+
+label {
+width: 250px;
+}
+
 ul#navigation {
 border-top: solid 1px #555;
 }
+
 ul#navigation li a {
 width: auto;
 padding: 20px;
+font-size: 60%;
 }
