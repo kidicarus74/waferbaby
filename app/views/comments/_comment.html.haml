@@ -1,4 +1,4 @@
-.comment{:id => "comment-at-#{@comment.created_time}"}
+.item.comment{:id => "comment-at-#{@comment.created_time}"}
   %h3
     %a.date{:href => url(:post, @comment.post) + "/#comment-at-#{@comment.created_time}", :title => "Permalink for this comment."}
       %span.month= @comment.created_month_short_name

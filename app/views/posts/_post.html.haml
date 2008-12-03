@@ -1,4 +1,4 @@
-.post{:id => 'post-' + @post.id.to_s}
+.item.post{:id => 'post-' + @post.id.to_s}
   %h3
     %a.date{:href => date_url_for(@post, 'posts'), :title => "View all posts from #{@post.created_month_short_name} #{@post.created_day}, #{@post.created_year}."}
       %span.month= @post.created_month_short_name
