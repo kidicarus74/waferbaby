@@ -66,14 +66,10 @@ color: #fff;
 font-size: 150%;
 }
 
-div.comment, div.post, div.person, div.scrawl {
+div.item {
 clear: both;
 padding: 15px 0;
 border-top: solid 1px #eee;
-}
-
-div.post:first-child {
-border: 0;
 }
 
 div.contents {
@@ -100,7 +96,7 @@ color: #222;
 border-bottom: solid 1px #ddd;
 }
 
-h2 + div.comment, h2 + div.post, h2 + div.person, h2 + div.scrawl {
+h2 + div.item {
 padding-top: 10px;
 border-top: 0;
 }
