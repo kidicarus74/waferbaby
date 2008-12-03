@@ -1,5 +1,6 @@
-%h2 Add a comment
 = display_errors_for(@comment)
+
+%h2 Add a comment
 = form_for(@comment, :action => url(:post_comments)) do
   %p= text_area(:contents)
   %p.action
