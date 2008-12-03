@@ -43,6 +43,7 @@ class People < Application
         def create
                 @person = Person.new(params[:person])
                 if @person.save
+			session[:message] = "Hell yeah! Welcome aboard."
                         redirect resource(@person)
                 else
                         render :new
