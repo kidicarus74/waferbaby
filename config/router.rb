@@ -10,11 +10,11 @@ Merb::Router.prepare do
 
 	# special case for wallscrawl dates.
 
-	match("/wallscrawl/:created_year(/:created_month(/:created_day))", :created_year => /\d{4,}/, :created_month => /\d{2,}/, :created_day => /\d{2,}/).to(:controller => 'scrawls', :action => 'index_by_date')
+	match("/wallscrawl/:created_year(/:created_month(/:created_day))", :created_year => /^\d{4,}$/, :created_month => /^\d{2,}$/, :created_day => /^\d{2,}$/).to(:controller => 'scrawls', :action => 'index_by_date')
 
 	# flexible route for any index_by_date calls.
 
-	match("/:controller/:created_year(/:created_month(/:created_day))", :created_year => /\d{4,}/, :created_month => /\d{2,}/, :created_day => /\d{2,}/).to(:action => 'index_by_date')	
+	match("/:controller/:created_year(/:created_month(/:created_day))", :created_year => /^\d{4,}$/, :created_month => /^\d{2,}$/, :created_day => /^\d{2,}$/).to(:action => 'index_by_date')	
 	
 	# for browsing people via a letter/number.
 	
