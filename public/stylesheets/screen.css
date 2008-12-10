@@ -52,7 +52,6 @@ font-size: 90%;
 }
 
 div#content {
-float: left;
 width: 700px;
 padding: 20px 20px 50px 40px;
 }
@@ -79,7 +78,7 @@ padding: 120px 15px 5px 15px;
 margin: 0;
 text-transform: uppercase;
 color: #fff;
-font-size: 370%;
+font-size: 300%;
 }
 
 h2 {
@@ -152,7 +151,7 @@ padding: 5px 0;
 
 ul#navigation {
 list-style: none inside;
-padding: 120px 20px 20px 20px;
+padding: 120px 20px 15px 20px;
 margin: 0;
 background-color: #101010;
 color: #333;
