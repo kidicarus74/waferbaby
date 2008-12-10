@@ -40,30 +40,21 @@ color: #fff !important;
 body {
 padding: 0;
 margin: 0;
-font-family: sans-serif;
-font-size: 14px;
 background-color: #fff;
 color: #000;
+font-family: sans-serif;
+font-size: 14px;
 }
 
 div#comments {
-font-size: 90%;
 margin-top: 30px;
+font-size: 90%;
 }
 
 div#content {
 float: left;
 width: 700px;
 padding: 20px 20px 50px 40px;
-}
-
-div#header {
-float: left;
-width: 100%;
-text-transform: uppercase;
-background-color: #000;
-color: #fff;
-font-size: 150%;
 }
 
 div.item {
@@ -77,23 +68,27 @@ margin-left: 80px;
 }
 
 form {
+padding: 15px;
+background-color: #eee;
 font-size: 80%;
 }
 
 h1 {
 float: right;
-padding: 148px 15px 5px 15px;
+padding: 120px 15px 5px 15px;
 margin: 0;
-font-size: 100%;
+text-transform: uppercase;
+color: #fff;
+font-size: 370%;
 }
 
 h2 {
 padding: 0 0 5px 0;
 margin: 10px 0 10px 0;
 text-transform: uppercase;
-font-size: 130%;
 color: #222;
 border-bottom: solid 1px #ddd;
+font-size: 130%;
 }
 
 h2 + div.item {
@@ -114,14 +109,15 @@ width: 150px;
 margin-right: 10px;
 text-align: right;
 color: #666;
+padding: 5px;
 }
 
 p#footer {
 clear: left;
-font-size: 70%;
 padding: 0;
 margin: 10px 40px 20px 40px;
 color: #888;
+font-size: 70%;
 }
 
 p#message, ul.errors {
@@ -129,16 +125,15 @@ list-style: none inside;
 padding: 10px;
 margin-bottom: 20px;
 background-color: #eee;
-font-size: 80%;
 border: solid 1px #ccc;
+font-size: 80%;
 }
 
 p.summary {
 padding: 5px 0 0 0;
 margin: 0;
-font-weight: normal;
-font-size: 80%;
 color: #888;
+font-size: 80%;
 }
 
 textarea {
@@ -157,25 +152,30 @@ padding: 5px 0;
 
 ul#navigation {
 list-style: none inside;
-padding: 0;
+padding: 120px 20px 20px 20px;
 margin: 0;
-font-size: 90%;
+background-color: #101010;
+color: #333;
+text-transform: uppercase;
+font-size: 120%;
 }
 
 ul#navigation li {
+display: inline;
 padding: 0;
 margin: 0;
 }
 
+ul#navigation li:after {
+content: "|";
+}
+
 ul#navigation li a {
-float: left;
-display: block;
-width: 80px;
+display: inline;
 text-align: center;
-padding: 150px 15px 15px 15px;
 color: #fff;
-border-right: solid 1px #111;
 font-size: 85%;
+padding: 5px;
 }
 
 ul#people {
