@@ -52,7 +52,8 @@ font-size: 90%;
 }
 
 div#content {
-width: 700px;
+min-width: 200px;
+max-width: 700px;
 padding: 20px 20px 50px 40px;
 }
 
@@ -151,7 +152,7 @@ padding: 5px 0;
 
 ul#navigation {
 list-style: none inside;
-padding: 120px 20px 15px 20px;
+padding: 120px 15px 15px 15px;
 margin: 0;
 background-color: #101010;
 color: #333;
@@ -165,16 +166,12 @@ padding: 0;
 margin: 0;
 }
 
-ul#navigation li:after {
-content: "|";
-}
-
 ul#navigation li a {
 display: inline;
 text-align: center;
 color: #fff;
-font-size: 85%;
 padding: 5px;
+font-size: 90%;
 }
 
 ul#people {
