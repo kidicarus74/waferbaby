@@ -23,6 +23,8 @@ font-size: 80%;
 h1 {
 float: none;
 padding: 20px;
+background-color: #101010;
+font-size: 150%;
 }
 
 h2 {
@@ -42,11 +44,10 @@ width: 250px;
 }
 
 ul#navigation {
+padding: 15px;
 border-top: solid 1px #555;
 }
 
 ul#navigation li a {
-width: auto;
-padding: 20px;
-font-size: 60%;
+font-size: 80%;
 }
