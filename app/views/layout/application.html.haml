@@ -4,8 +4,8 @@
     %title= "waferbaby#{" : " + catch_content(:title) unless catch_content(:title).blank?}"
     = css_include_tag :screen, :media => :screen
     = css_include_tag :mobile, :media => "only screen and (max-device-width: 480px)"
-    - unless catch_content(:atom_feed).blank?
-      %link{:href => "http://waferbaby.com" + catch_content(:atom_feed) + ".atom", :type => 'application/atom+xml', :rel => 'alternate', :title => "Atom feed"}
+    - unless catch_content(:feed).blank?
+      %link{:href => "http://waferbaby.com" + catch_content(:feed) + ".atom", :type => 'application/atom+xml', :rel => 'alternate', :title => "Atom feed"}
     %meta{:name => "viewport", :content => "width=760"}
   %body
     #header
@@ -18,7 +18,7 @@
           %li= link_to("Log in", url(:login), :title => "Sign into your account.", :class => "login")
           %li= link_to("Sign up", url(:signup), :title => "Carve your name into the community.", :class => "signup")
         - else
-          %li= tag('strong', "#{current_person.username}!")
+          %li= link_to(tag('strong', "#{current_person.username}!"), resource(current_person), :title => "View and edit your profile", :class => "profile")
           %li= link_to("Log out", url(:logout), :title => "Don't leave me!", :class => "logout")    
     #content
       - unless session[:message].blank?
