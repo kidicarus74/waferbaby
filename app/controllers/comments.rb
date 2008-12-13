@@ -4,7 +4,6 @@
 #
 
 class Comments < Application
-	
 	before :login_required, :only => [:new, :edit, :delete, :create, :update, :destroy]
 	
 	def index
