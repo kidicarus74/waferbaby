@@ -24,7 +24,7 @@ class Posts < Application
         end
         
         def index_by_category(category)
-                @category = Category.first(:slug => category)                
+                @category = Category.first(:slug => category)
                 raise NotFound unless @category && @category.posts
                 
                 @posts = @category.posts
