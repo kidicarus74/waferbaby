@@ -24,4 +24,4 @@
       - unless session[:message].blank?
         %p#message= session_message 
       = catch_content :for_layout
-    %p#footer= "We eat bandwidth for breakfast (#{link_to("More", url(:about), :title => "The most useless page like, wow, evar.")}). Sorry about that."
+    %p#footer= "We eat bandwidth for breakfast (#{link_to("More", url(:about), :title => "The most useless page like, wow, evar.")})."
