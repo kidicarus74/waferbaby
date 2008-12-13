@@ -1,1 +1,7 @@
-%h2= @person.username
+%h2
+  = @person.username
+  = "(#{link_to("Edit", url(:edit_person, @person), :title => "Change your profile.")})" if @person == current_person
+- unless @person.profile.blank?
+  = markup(@person.profile)
+- else
+  %p Nothing to see here.
