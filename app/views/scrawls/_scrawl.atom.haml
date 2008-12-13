@@ -1,0 +1,11 @@
+%entry
+  %title= @scrawl.person.username
+  %id= "urn:uuid:#{@scrawl.uuid}"
+  %link{:href => "http://waferbaby.com" + date_url_for(@scrawl, 'wallscrawl') + "#at-#{@scrawl.created_time}"}
+  %updated= @scrawl.updated_at
+  %published= @scrawl.created_at
+  %author
+    %name= @scrawl.person.username
+  %content{:type => "xhtml"}
+    %div{:xmlns => "http://www.w3.org/1999/xhtml"}
+      = markup(@scrawl.contents)

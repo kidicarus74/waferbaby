@@ -1,0 +1,8 @@
+- throw_content :title, "People on waferbaby"
+- throw_content :uuid, "85fee99d-a8f2-4fd7-9bdd-c2cf27115967"
+- throw_content :url, "/people"
+- throw_content :author, "Everyone on waferbaby"
+- throw_content :updated, @people[0].updated_at
+
+- @people.each do |@person|
+  = partial :person
