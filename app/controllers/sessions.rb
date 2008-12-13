@@ -4,7 +4,6 @@
 #
 
 class Sessions < Application
-
         def new
                 if request.post?
 			if params[:username].blank? || params[:password].blank?
@@ -28,5 +27,4 @@ class Sessions < Application
                 session.clear!
                 redirect("/") 
         end
-
 end
