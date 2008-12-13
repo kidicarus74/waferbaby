@@ -52,9 +52,16 @@ font-size: 90%;
 }
 
 div#content {
+clear: left;
 min-width: 200px;
 max-width: 700px;
-padding: 20px 20px 50px 40px;
+padding: 15px 20px 50px 40px;
+}
+
+div#header {
+float: left;
+width: 100%;
+background-color: #101010;
 }
 
 div.item {
@@ -74,17 +81,23 @@ font-size: 80%;
 }
 
 h1 {
-float: right;
-padding: 120px 15px 5px 15px;
+float: left;
+padding: 20px;
 margin: 0;
-text-transform: uppercase;
-color: #fff;
-font-size: 300%;
+color: #0099ff;
+font-size: 200%;
+font-weight: normal;
+}
+
+h1:after {
+content: "v5";
+font-size: 40%;
+color: #555;
 }
 
 h2 {
 padding: 0 0 5px 0;
-margin: 10px 0 10px 0;
+margin: 10px 0;
 text-transform: uppercase;
 color: #222;
 border-bottom: solid 1px #ddd;
@@ -150,32 +163,32 @@ ul li {
 padding: 5px 0;
 }
 
-ul#navigation {
+ul.navigation {
 list-style: none inside;
-padding: 120px 15px 15px 15px;
-margin: 0;
-background-color: #101010;
-color: #333;
+padding: 0;
+margin: 28px 20px 0 0;
 text-transform: uppercase;
-font-size: 120%;
+font-size: 80%;
 }
 
-ul#navigation li {
+ul.navigation li {
 display: inline;
 padding: 0;
 margin: 0;
 }
 
-ul#navigation li a {
+ul.navigation li a {
 display: inline;
 text-align: center;
 color: #fff;
 padding: 5px;
-font-size: 90%;
 }
 
-ul#people {
-list-style: none inside;
-padding: 0;
-margin: 0;
+ul.navigation#main {
+float: left;
+font-size: 100%;
+}
+
+ul.navigation#person {
+text-align: right;
 }
