@@ -4,7 +4,7 @@
 #
 
 class People < Application
-	# provides :xml, :yaml, :js
+	provides :atom, :text, :xml
 
 	def index
 		@people = Person.all(:order => [:created_at.desc], :limit => 20)
