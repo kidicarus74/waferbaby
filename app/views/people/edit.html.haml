@@ -1,0 +1,5 @@
+%h2 Edit your profile
+= form_for(@person, :action => resource(@person)) do
+  %p
+    %pre= text_area(:profile)
+  %p= submit('Update')
