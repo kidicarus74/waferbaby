@@ -3,5 +3,4 @@
 %h2 Scrawl!
 = form_for(@scrawl, :action => resource(:scrawls)) do
   %p= text_area(:contents)
-  %p.action
-    = submit('Scrawl')
+  %p= submit('Scrawl')
