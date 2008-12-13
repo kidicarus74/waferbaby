@@ -5,84 +5,87 @@
 
 class Scrawls < Application
 
-        before :login_required, :only => [:new, :edit, :delete, :create, :update, :destroy]
-        provides :atom, :text, :xml
-        
-        def index
-                @scrawls = Scrawl.all(:order => [:created_at.desc], :limit => 20)
-                display @scrawls
-        end
-        
-        def index_by_date(created_year, created_month = nil, created_day = nil)
-                created_month = '__' if created_month == nil
-                created_day   = '__' if created_day   == nil
-                
-                date            = "#{created_year}-#{created_month}-#{created_day}%"
-                @scrawls        = Scrawl.all(:created_at.like => date, :order => [:created_at.desc])
-                
-                display @scrawls, :index
-        end
-        
-        def show
-                @scrawl = Scrawl.get(params[:id])
-                raise NotFound unless @scrawl
-                display @scrawl
-        end
-        
-        def new
-                only_provides :html
-                @scrawl = Scrawl.new
-                render
-        end
+	before :login_required, :only => [:new, :edit, :delete, :create, :update, :destroy]
 
-        def edit
-                only_provides :html
-                @scrawl = Scrawl.get(params[:id])
-                raise NotFound unless @scrawl
-                render
-        end
-        
-        def delete
-                only_provides :html
-                @scrawl = Scrawl.get(params[:id])
-                raise NotFound unless @scrawl
-                render
-        end
+	provides :atom, :text, :xml
 
-        def create
-                @scrawl = Scrawl.new(params[:scrawl])
-                @scrawl.person = current_person
-                
-                if @scrawl.save
-                        redirect resource(:scrawls)
-                else
-                        render :new
-                end
-        end
+	def index
+		@scrawls = Scrawl.all(:order => [:created_at.desc], :limit => 20)
+		display @scrawls
+	end
 
-        def update
-                @scrawl = Scrawl.get(params[:id])
-                
-                raise NotFound unless @scrawl
-                raise BadRequest unless @scrawl.person == current_person
-                
-                if @scrawl.update_attributes(params[:scrawl]) || !@scrawl.dirty?
-                        redirect resource(@scrawl)
-                else
-                        raise BadRequest
-                end
-        end
+	def index_by_date(created_year, created_month = nil, created_day = nil)
+		created_month = '__' if created_month == nil
+		created_day   = '__' if created_day   == nil
 
-        def destroy
-                @scrawl = Scrawl.get(params[:id])
-                
-                raise NotFound unless @scrawl
-                raise BadRequest unless @scrawl.person == current_person
-                
-                if @scrawl.destroy
-                        redirect resource(:scrawls)
-                else
-                        raise BadRequest
-                end
-        end
+		date            = "#{created_year}-#{created_month}-#{created_day}%"
+		@scrawls        = Scrawl.all(:created_at.like => date, :order => [:created_at.desc])
+
+		display @scrawls, :index
+	end
+
+	def show(id)
+		@scrawl = Scrawl.get(id)
+		raise NotFound unless @scrawl
+		display @scrawl
+	end
+
+	def new
+		only_provides :html
+		@scrawl = Scrawl.new
+		render
+	end
+
+	def edit(id)
+		only_provides :html
+
+		@scrawl = Scrawl.first(:id => id, :person_id => current_person.id)
+		raise NotFound unless @scrawl
+
+		render
+	end
+
+	def delete(id)
+		only_provides :html
+
+		@scrawl = Scrawl.firs(:id => id, :person_id => current_person.id)		
+		raise NotFound unless @scrawl
+
+		render
+	end
+
+	def create(scrawl)
+		@scrawl = Scrawl.new(scrawl)
+		@scrawl.person = current_person
+
+		if @scrawl.save
+			redirect resource(:scrawls)
+		else
+			render :new
+		end
+	end
+
+	def update(id, scrawl)
+		@scrawl = Scrawl.get(id)
+
+		raise NotFound unless @scrawl && this_is_mine(@scrawl)
+
+		if @scrawl.update_attributes(scrawl) || !@scrawl.dirty?
+			redirect resource(@scrawl)
+		else
+			raise BadRequest
+		end
+	end
+
+	def destroy(id)
+		@scrawl = Scrawl.get(id)
+
+		raise NotFound unless @scrawl && this_is_mine(@scrawl)
+
+		if @scrawl.destroy
+			redirect resource(:scrawls)
+		else
+			raise InternalServerError
+		end
+	end
 end
