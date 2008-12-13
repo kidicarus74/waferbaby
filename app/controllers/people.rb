@@ -4,6 +4,7 @@
 #
 
 class People < Application
+	before :login_required, :only => [:edit, :delete, :update, :destroy]
 	provides :atom, :text, :xml
 
 	def index
@@ -40,6 +41,15 @@ class People < Application
 		render
 	end
 
+	def edit(username)
+		only_provides :html
+		
+		@person = Person.first(:username => username)
+		raise NotFound unless @person && @person == current_person
+		
+		render
+	end
+
 	def create(person)
 		@person = Person.new(person)
 		if @person.save
@@ -48,6 +58,17 @@ class People < Application
 		else
 			render :new
 		end
+	end
+	
+	def update(username, person)
+		@person = Person.first(:username => username)
+		raise NotFound unless @person && @person == current_person
+
+		if @person.update_attributes(person, :profile)
+			redirect resource(@person)
+		else
+			display @person, :edit
+		end		
 	end
 
 	def destroy(username)
@@ -59,5 +80,4 @@ class People < Application
 			raise InternalServerError
 		end
 	end
-
 end
