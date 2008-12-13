@@ -10,15 +10,15 @@ class Person
         include DataMapper::Timestamp
         include BCrypt
 
-        property :id, Integer, :serial => true
-        property :uuid, String, :length => 36
-        property :old_crypted_password, String
-        property :salt, String
-        property :crypted_password, String
-        property :username, String, :length => 2..40
-        property :email_address, String, :format => :email_address
-        property :created_at, DateTime
-        property :updated_at, DateTime
+        property :id, 				Serial
+        property :uuid, 			String, :length => 36
+        property :old_crypted_password, 	String
+        property :salt, 			String
+        property :crypted_password, 		String
+        property :username, 			String, :length => 2..40
+        property :email_address, 		String, :format => :email_address
+        property :created_at, 			DateTime
+        property :updated_at, 			DateTime
 
         validates_is_unique :username, :email_address
         validates_length :password, :in => 4..40, :if => :password_required?
@@ -28,6 +28,7 @@ class Person
         has n, :comments
         has n, :posts
         has n, :scrawls
+#	has 1, :profile
         
         attr_accessor :password, :password_confirmation
         
