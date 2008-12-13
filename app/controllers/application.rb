@@ -4,8 +4,7 @@
 #
 
 class Application < Merb::Controller
-
-	protected                      
+	protected
 		def logged_in?
 			current_person != :false
 		end
@@ -39,5 +38,4 @@ class Application < Merb::Controller
 			session[:return_to] = request.uri
 			redirect url(:login)
 		end
-
 end
