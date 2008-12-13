@@ -28,7 +28,6 @@ class Person
         has n, :comments
         has n, :posts
         has n, :scrawls
-#	has 1, :profile
         
         attr_accessor :password, :password_confirmation
         
