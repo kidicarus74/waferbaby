@@ -12,32 +12,34 @@ class Comments < Application
 		display @comments
 	end
 
-	def show
-		@comment = Comment.get(params[:id])
+	def show(id)
+		@comment = Comment.get(id)
 		raise NotFound unless @comment
 		display @comment
 	end
 
-	def new
+	def new(slug)
 		only_provides :html
 		
 		@comment = Comment.new
-		@post = Post.first(:slug => params[:slug])
+		@post = Post.first(:slug => slug)
 		
 		render
 	end
 
-	def edit
+	def edit(id)
 		only_provides :html
-		@comment = Comment.get(params[:id])
-		raise NotFound unless @comment
+		
+		@comment = Comment.get(id)
+		raise NotFound unless @comment && this_is_mine(@comment)
+		
 		render
 	end
 
-	def create
-		@post = Post.first(:slug => params[:slug])
+	def create(comment, slug)
+		@post = Post.first(:slug => slug)
 		
-		@comment = Comment.new(params[:comment])
+		@comment = Comment.new(comment)
 		@comment.person = current_person
 		
 		@post.comments << @comment
@@ -49,23 +51,24 @@ class Comments < Application
 		end
 	end
 
-	def update
-		@comment = Comment.get(params[:id])
-		raise NotFound unless @comment
-		if @comment.update_attributes(params[:comment]) || !@comment.dirty?
+	def update(id, comment)
+		@comment = Comment.get(id)
+		raise NotFound unless @comment && this_is_mine(@comment)
+		if @comment.update_attributes(comment)
 			redirect resource(:comments)
 		else
-			raise BadRequest
+			display @comment, :edit
 		end
 	end
 
-	def destroy
-		@comment = Comment.get(params[:id])
-		raise NotFound unless @comment
+	def destroy(id)
+		@comment = Comment.get(id)
+		
+		raise NotFound unless @comment && this_is_mine(@comment)
 		if @comment.destroy
 			redirect resource(:comments)
 		else
-			raise BadRequest
+			raise InternalServerError
 		end
 	end
 end
