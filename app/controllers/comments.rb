@@ -15,6 +15,7 @@ class Comments < Application
 	def show(id)
 		@comment = Comment.get(id)
 		raise NotFound unless @comment
+		
 		display @comment
 	end
 
