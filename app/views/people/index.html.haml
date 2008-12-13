@@ -1,4 +1,5 @@
 - unless @people.length < 1
+  - throw_content :feed, "/people"
   %h2
     People
     - if params["character"]
