@@ -5,6 +5,7 @@ dependency 'merb-action-args'
 dependency 'merb-assets'
 dependency 'merb-helpers'
 dependency 'merb-param-protection'
+dependency 'merb_jquery'
  
 dependency 'dm-core'
 dependency 'dm-aggregates'
