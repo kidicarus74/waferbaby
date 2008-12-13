@@ -1,5 +1,5 @@
 - unless @posts.length < 1
-  - throw_content :atom_feed, "/posts"
+  - throw_content :feed, "/posts"
   %h2
     Ramblings
     - if params["created_year"]
