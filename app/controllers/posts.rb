@@ -32,8 +32,8 @@ class Posts < Application
                 display @posts, :index
         end
         
-        def show
-                @post = Post.first(:slug => params[:slug])
+        def show(slug)
+                @post = Post.first(:slug => slug)
                 raise NotFound unless @post
                 
                 @post.is_selected = true
