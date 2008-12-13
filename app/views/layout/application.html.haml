@@ -8,21 +8,20 @@
       %link{:href => "http://waferbaby.com" + catch_content(:atom_feed) + ".atom", :type => 'application/atom+xml', :rel => 'alternate', :title => "Atom feed"}
     %meta{:name => "viewport", :content => "width=760"}
   %body
-    %h1 waferbaby
-    %ul#navigation
-      %li= link_to("Read", url(:default), :title => "View the latest drivel.", :class => "posts")
-      %li= link_to("Scrawl", url(:scrawls), :title => "The voice of the unwashed masses.", :class => "wallscrawl")
-      %li= link_to("Stalk", url(:people), :title => "Them humans what make the site good.", :class => "people")
-      - unless logged_in?
-        %li= link_to("Log in", url(:login), :title => "Sign into your account.", :class => "login")
-        %li= link_to("Sign up", url(:signup), :title => "Carve your name into the community.", :class => "signup")
-      - else
-        %li= link_to("Log out", url(:logout), :title => "Don't leave me!", :class => "logout")
+    #header
+      %h1= link_to("waferbaby", url(:default), :title => "View the latest drivel.", :class => "posts")
+      %ul.navigation#main
+        %li= link_to("Scrawl", url(:scrawls), :title => "The voice of the unwashed masses.", :class => "wallscrawl")
+        %li= link_to("Stalk", url(:people), :title => "Them humans what make the site good.", :class => "people")
+      %ul.navigation#person
+        - unless logged_in?
+          %li= link_to("Log in", url(:login), :title => "Sign into your account.", :class => "login")
+          %li= link_to("Sign up", url(:signup), :title => "Carve your name into the community.", :class => "signup")
+        - else
+          %li= tag('strong', "#{current_person.username}!")
+          %li= link_to("Log out", url(:logout), :title => "Don't leave me!", :class => "logout")    
     #content
       - unless session[:message].blank?
         %p#message= session_message 
       = catch_content :for_layout
-    %p#footer
-      We eat bandwidth for breakfast
-      = "(", link_to("More", url(:about), :title => "The most useless page like, wow, evar."), ")."
-      Sorry about that.
+    %p#footer= "We eat bandwidth for breakfast (#{link_to("More", url(:about), :title => "The most useless page like, wow, evar.")}). Sorry about that."
