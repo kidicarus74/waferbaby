@@ -1,5 +1,6 @@
 - unless @comments.length < 1
   %h2 Comments
+  %p= "You are viewing the comments left on the post '#{link_to(@comments[0].post.title, url(:post, @comments[0].post), :title => "View '#{h(@comments[0].post.title)}'.")}'."
   - @comments.each do |@comment|
     = partial :comment
 - else
