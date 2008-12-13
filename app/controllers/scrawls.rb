@@ -4,9 +4,7 @@
 #
 
 class Scrawls < Application
-
 	before :login_required, :only => [:new, :edit, :delete, :create, :update, :destroy]
-
 	provides :atom, :text, :xml
 
 	def index
@@ -67,19 +65,17 @@ class Scrawls < Application
 
 	def update(id, scrawl)
 		@scrawl = Scrawl.get(id)
-
 		raise NotFound unless @scrawl && this_is_mine(@scrawl)
 
-		if @scrawl.update_attributes(scrawl) || !@scrawl.dirty?
+		if @scrawl.update_attributes(scrawl)
 			redirect resource(@scrawl)
 		else
-			raise BadRequest
+			display @scrawl, :edit
 		end
 	end
 
 	def destroy(id)
 		@scrawl = Scrawl.get(id)
-
 		raise NotFound unless @scrawl && this_is_mine(@scrawl)
 
 		if @scrawl.destroy
