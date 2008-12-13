@@ -14,9 +14,10 @@ class Person
         property :uuid, 			String, :length => 36
         property :old_crypted_password, 	String
         property :salt, 			String
-        property :crypted_password, 		String
+        property :crypted_password, 		String, :length => 70
         property :username, 			String, :length => 2..40
         property :email_address, 		String, :format => :email_address
+	property :profile,			Text, :lazy => false
         property :created_at, 			DateTime
         property :updated_at, 			DateTime
 
@@ -71,5 +72,4 @@ class Person
                 def assign_uuid
                         self.uuid = UUID.generate
                 end
-
 end
