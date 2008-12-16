@@ -3,6 +3,8 @@
 # =>    Copyright (c) 2008 Daniel Bogan. http://waferbaby.com/
 #
 
+require 'people_helper'
+
 class Application < Merb::Controller
 	protected
 		def logged_in?
