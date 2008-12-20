@@ -1,5 +1,6 @@
+- throw_content :title, "#{h(@person.username)} on waferbaby"
 %h2
-  = @person.username
+  = name_for_person(@person)
   = "(#{link_to("Edit", url(:edit_person, @person), :title => "Change your profile.")})" if @person == current_person
 - unless @person.profile.blank?
   = markup(@person.profile)
