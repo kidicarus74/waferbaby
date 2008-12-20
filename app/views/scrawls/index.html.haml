@@ -1,9 +1,9 @@
+- throw_content :title, "Scrawls on waferbaby"
 - unless @scrawls.length < 1
   - throw_content :feed, "/wallscrawl"
   %h2
     Scrawls
-    - if params["created_year"]
-      = "from #{date_title}"
+    = "from #{date_title}" if params["created_year"]
     = " (#{link_to("Add", resource(:scrawls, :new), :title => "Add a scrawl.")})"
   - @scrawls.each do |@scrawl|
     = partial :scrawl
