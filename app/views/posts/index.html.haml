@@ -2,8 +2,7 @@
   - throw_content :feed, "/posts"
   %h2
     Ramblings
-    - if params["created_year"]
-      = "from #{date_title}"
+    = "from #{date_title}" if params["created_year"]
   - @posts.each do |@post|
     = partial :post
 - else
