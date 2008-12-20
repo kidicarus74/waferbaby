@@ -5,6 +5,6 @@
   %updated= @person.updated_at
   %published= @person.created_at
   %author
-    %name= @person.username
+    %name= name_for_person(@person)
   %content{:type => "xhtml"}
     %div{:xmlns => "http://www.w3.org/1999/xhtml"}
