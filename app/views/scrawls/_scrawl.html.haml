@@ -3,6 +3,6 @@
     %a.date{:href => date_url_for(@scrawl, 'wallscrawl') + "#at-#{@scrawl.created_time}", :title => "Permalink for this scrawl."}
       %span.month= @scrawl.created_month_short_name
       %span.day= @scrawl.created_day  
-    = link_to("#{@scrawl.person.username}", url(:person, @scrawl.person), :title => "View more about '#{h(@scrawl.person.username)}'.")
+    = link_to_person(@scrawl.person)
   .contents
     = markup(@scrawl.contents)
