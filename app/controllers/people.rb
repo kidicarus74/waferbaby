@@ -64,7 +64,7 @@ class People < Application
 		@person = Person.first(:username => username)
 		raise NotFound unless @person && @person == current_person
 
-		if @person.update_attributes(person, :profile)
+		if @person.update_attributes(person, :display_name, :profile)
 			redirect resource(@person)
 		else
 			display @person, :edit
