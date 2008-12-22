@@ -16,6 +16,7 @@ class Person
         property :salt, 			String
         property :crypted_password, 		String, :length => 70
         property :username, 			String, :length => 2..40
+	property :display_name,			String
         property :email_address, 		String, :format => :email_address
 	property :profile,			Text, :lazy => false
         property :created_at, 			DateTime
@@ -23,6 +24,7 @@ class Person
 
         validates_is_unique :username, :email_address
         validates_length :password, :in => 4..40, :if => :password_required?
+	validates_length :display_name, :in => 2..30, :groups => :update
         validates_is_confirmed :password, :groups => :create, :if => :password_required?
         validates_format :username, :as => /^([a-zA-Z0-9_]+)$/, :message => "Username can only contain letters, numbers or an underscore"
         
