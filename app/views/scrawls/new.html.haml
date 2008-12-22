@@ -2,5 +2,5 @@
 
 %h2 Scrawl!
 = form_for(@scrawl, :action => resource(:scrawls)) do
-  %p= text_area(:contents)
-  %p= submit('Scrawl')
+  = text_area(:contents), self_closing_tag('br')
+  = submit('Scrawl')
