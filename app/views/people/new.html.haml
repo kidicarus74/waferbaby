@@ -4,8 +4,8 @@
 %h2 Sign up
 %p Come and join the party. It's all happening here. Wee.
 = form_for(@person, :action => url(:people)) do
-  %p= text_field(:username, :label => "Username:")
-  %p= text_field(:email_address, :label => "Email address:")
-  %p= password_field(:password, :label => "Password:")
-  %p= password_field(:password_confirmation, :label => "Password (confirm):")
-  %p= submit "Sign up"
+  = text_field(:username, :label => "Username:"), self_closing_tag('br')
+  = text_field(:email_address, :label => "Email address:"), self_closing_tag('br')
+  = password_field(:password, :label => "Password:"), self_closing_tag('br')
+  = password_field(:password_confirmation, :label => "Password (confirm):"), self_closing_tag('br')
+  = submit "Sign up"
