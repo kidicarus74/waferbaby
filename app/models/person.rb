@@ -24,7 +24,7 @@ class Person
 
         validates_is_unique :username, :email_address
         validates_length :password, :in => 4..40, :if => :password_required?
-	validates_length :display_name, :in => 2..30, :groups => :update
+	validates_length :display_name, :in => 2..30, :if => Proc.new { |p| !p.new_record? && p.display_name.length > 0 }
         validates_is_confirmed :password, :groups => :create, :if => :password_required?
         validates_format :username, :as => /^([a-zA-Z0-9_]+)$/, :message => "Username can only contain letters, numbers or an underscore"
         
