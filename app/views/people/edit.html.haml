@@ -1,5 +1,10 @@
+- throw_content :title, "Edit your profile"
+= display_errors_for(@person)
+
 %h2 Edit your profile
 = form_for(@person, :action => resource(@person)) do
-  %p
-    %pre= text_area(:profile)
-  %p= submit('Update')
+  = fieldset(:legend => "The basics") do
+    = text_field(:display_name, :label => "Your display name (2-30 characters):")  
+  = fieldset(:legend => "Your bio, details, whatever you want") do
+    %pre= text_area(:profile), self_closing_tag('br')
+    = submit('Update')
