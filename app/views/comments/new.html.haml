@@ -3,5 +3,5 @@
 %h2 Add a comment
 %p= "You are commenting on the post '#{link_to(@post.title, resource(@post), :title => "View '#{h(@post.title)}'.")}'."
 = form_for(@comment, :action => url(:post_comments)) do
-  %p= text_area(:contents)
-  %p= submit('Comment')
+  = text_area(:contents), self_closing_tag('br')
+  = submit('Comment')
