@@ -18,7 +18,7 @@
           %li= link_to("Log in", url(:login), :title => "Sign into your account.", :class => "login")
           %li= link_to("Sign up", url(:signup), :title => "Carve your name into the community.", :class => "signup")
         - else
-          %li= link_to(tag('strong', "#{current_person.username}!"), resource(current_person), :title => "View and edit your profile", :class => "profile")
+          %li= link_to(tag('strong', name_for_person(current_person)), resource(current_person), :title => "View and edit your profile.", :class => "profile")
           %li= link_to("Log out", url(:logout), :title => "Don't leave me!", :class => "logout")    
     #content
       - unless session[:message].blank?
