@@ -5,7 +5,7 @@
   %updated= @post.updated_at
   %published= @post.created_at
   %author
-    %name= @post.person.username
+    %name= name_for_person(@post.person)
   %content{:type => "xhtml"}
     %div{:xmlns => "http://www.w3.org/1999/xhtml"}
       = markup(@post.contents)
