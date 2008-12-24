@@ -6,12 +6,14 @@ dependency 'merb-assets'
 dependency 'merb-helpers'
 dependency 'merb-param-protection'
 dependency 'merb_jquery'
+dependency 'merb-pagination'
  
 dependency 'dm-core'
 dependency 'dm-aggregates'
 dependency 'dm-migrations'
 dependency 'dm-timestamps'
 dependency 'dm-validations'
+dependency 'dm-is-paginated'
 
 require 'lib/timestamp_extensions'
 
