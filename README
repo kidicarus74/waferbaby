@@ -1,15 +1,14 @@
 README
 ------
 
-This is the source code for waferbaby.com (being the 'official' fifth version out of scores of revisions over the years).
+This is the source code for waferbaby.com (being the 'official' fifth version out of scores of revisions over the years). It's a Merb application. Merb is a nice little web framework written in Ruby. You might like it! It likes you. Really, it told me.
 
-It's a Merb application. Merb is a nice little web framework written in Ruby. You might like it! It likes you. Really, it told me.
-
-	http://merbivore.com/ (nb: waferbaby currently uses v0.97 at the time of writing)
+	http://merbivore.com/
 
 And waferbaby also uses the following gems:
 
 	* DataMapper (a nice ORM)
+	* dm-is-paginated & merb-pagination (clearly, for shining your shoes)
 	* HAML (for the static HTML markup)
 	* RDiscount (for dynamic markup via Markdown)
 	* UUID (for generating unique goodness)
@@ -18,4 +17,4 @@ I'm offering up the whole codebase to the world with the vague hope that someone
 
 Enjoy!
 
-<3, daniel bogan.
+Daniel -- d @ the domain mentioned above.
