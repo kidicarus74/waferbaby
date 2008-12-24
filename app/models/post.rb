@@ -16,6 +16,8 @@ class Post
         property :contents,     Text, :lazy => false
         property :created_at,   DateTime
         property :updated_at,   DateTime
+
+	is_paginated
         
         has n,                  :categories, :through => Resource
         has n,                  :comments, :through => Resource

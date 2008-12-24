@@ -13,6 +13,8 @@ class Scrawl
         property :created_at,   DateTime
         property :updated_at,   DateTime
         
+	is_paginated
+
         belongs_to :person
         
         validates_present       :contents

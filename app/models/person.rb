@@ -22,6 +22,8 @@ class Person
         property :created_at, 			DateTime
         property :updated_at, 			DateTime
 
+	is_paginated
+
         validates_is_unique :username, :email_address
         validates_length :password, :in => 4..40, :if => :password_required?
 	validates_length :display_name, :in => 2..30, :if => Proc.new { |p| !p.new_record? && p.display_name.length > 0 }
@@ -56,7 +58,7 @@ class Person
 
                 Password.new(crypted_password) == clear_password
         end
-        
+
         protected
                 def self.authenticate(username, clear_password)
                         person = first(:username => username)

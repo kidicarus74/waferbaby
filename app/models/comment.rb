@@ -16,5 +16,7 @@ class Comment
         belongs_to :person
         belongs_to :post
 
+	is_paginated
+
 	validates_present       :contents
 end
