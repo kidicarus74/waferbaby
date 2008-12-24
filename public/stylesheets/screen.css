@@ -75,6 +75,33 @@ div.contents {
 margin-left: 80px;
 }
 
+div.paginated {
+padding-top: 10px;
+border-top: solid 1px #ddd;
+}
+
+div.paginated > a {
+	font-size: 120%;
+}
+
+div.paginated ul {
+list-style: none inside;
+display: inline;
+padding: 0 10px;
+margin: 0;
+color: #aaa;
+}
+
+div.paginated ul li {
+display: inline;
+padding: 0 2px;
+}
+
+div.paginated ul li.current_page {
+color: #000;
+font-weight: bold;
+}
+
 fieldset {
 border: 0;
 padding: 10px 0;
