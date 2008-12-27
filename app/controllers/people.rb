@@ -8,12 +8,12 @@ class People < Application
 	provides :atom, :text, :xml
 
 	def index
-		@count, @people = Person.paginated(:order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1)
+		@count, @people = Person.paginated(:order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
 		display @people
 	end
 
 	def index_by_letter_or_number(character)
-		@count, @people = Person.paginated(:username.like => "#{character}%", :order => [:username.asc], :page => params[:page] ? params[:page].to_i : 1)
+		@count, @people = Person.paginated(:username.like => "#{character}%", :order => [:username.asc], :page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
 		display @people, :index
 	end
 
@@ -22,7 +22,7 @@ class People < Application
 		created_day   = '__' if created_day   == nil
 
 		date = "#{created_year}-#{created_month}-#{created_day}%"
-		@count, @people = Person.paginated(:created_at.like => date, :order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1)
+		@count, @people = Person.paginated(:created_at.like => date, :order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
 
 		display @people, :index
 	end

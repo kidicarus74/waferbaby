@@ -8,7 +8,7 @@ class Scrawls < Application
 	provides :atom, :text, :xml
 
 	def index
-		@count, @scrawls = Scrawl.paginated(:order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1)
+		@count, @scrawls = Scrawl.paginated(:order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
 		display @scrawls
 	end
 
@@ -17,7 +17,7 @@ class Scrawls < Application
 		created_day   = '__' if created_day   == nil
 
 		date = "#{created_year}-#{created_month}-#{created_day}%"
-		@count, @scrawls = Scrawl.paginated(:created_at.like => date, :order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1)
+		@count, @scrawls = Scrawl.paginated(:created_at.like => date, :order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
 
 		display @scrawls, :index
 	end
