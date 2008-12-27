@@ -8,7 +8,11 @@ class Help < Application
 		render
 	end
 
-	def show_about
+	def about
+		render
+	end
+	
+	def terms
 		render
 	end
 end
