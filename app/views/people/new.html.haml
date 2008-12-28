@@ -8,4 +8,4 @@
   = text_field(:email_address, :label => "Email address:"), self_closing_tag('br')
   = password_field(:password, :label => "Password:"), self_closing_tag('br')
   = password_field(:password_confirmation, :label => "Password (confirm):"), self_closing_tag('br')
-  = submit "Sign up"
+  = submit("Sign up"), "By signing up, you agree to our modest, reasonable ", link_to("terms and conditions", url(:terms), :title => "View the boring legal-type information."), "."
