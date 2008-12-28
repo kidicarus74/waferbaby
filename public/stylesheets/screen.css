@@ -81,7 +81,7 @@ border-top: solid 1px #ddd;
 }
 
 div.paginated > a {
-	font-size: 120%;
+font-size: 120%;
 }
 
 div.paginated ul {
@@ -113,6 +113,7 @@ padding: 15px;
 margin: 15px 0;
 font-size: 80%;
 background-color: #f1f1f1;
+color: #222;
 }
 
 h1 {
@@ -159,15 +160,17 @@ border: solid 1px #aaa;
 
 input[type=submit] {
 background-color: #fff;
+margin: 10px 10px 0 0;
+text-transform: uppercase;
 }
 
 label {
 float: left;
 width: 200px;
+padding: 5px;
 margin-right: 10px;
 text-align: right;
-color: #666;
-padding: 5px;
+font-weight: bold;
 }
 
 legend {
