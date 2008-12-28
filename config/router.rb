@@ -3,7 +3,8 @@ Merb::Router.prepare do
 
 	# general routes.
 	
-        match('/about').to(:controller => 'help', :action => 'show_about').name(:about)
+        match('/about').to(:controller => 'help', :action => 'about').name(:about)
+	match('/terms').to(:controller => 'help', :action => 'terms').name(:terms)
         match('/login').to(:controller => 'sessions', :action => 'new').name(:login)
         match('/logout').to(:controller => 'sessions', :action => 'destroy').name(:logout)
         match('/signup').to(:controller => 'people', :action => 'new').name(:signup)
