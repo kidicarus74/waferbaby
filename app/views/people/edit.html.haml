@@ -3,8 +3,9 @@
 
 %h2 Edit your profile
 = form_for(@person, :action => resource(@person)) do
-  = fieldset(:legend => "The basics") do
-    = text_field(:display_name, :label => "Your display name (2-30 characters):")  
-  = fieldset(:legend => "Your bio, details, whatever you want") do
+  = fieldset(:legend => "General bits and pieces") do
+    = text_field(:display_name, :label => "Your display name:"), tag('span', "This can be whatever you want (2-30 characters).")
+    = text_field(:email_address, :label => "Your email address:"), tag('span', "You won't get spam from the wafer.")
+  = fieldset(:legend => "Tell us a bit about you") do
     %pre= text_area(:profile), self_closing_tag('br')
     = submit('Update')
