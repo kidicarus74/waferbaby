@@ -12,7 +12,7 @@ class Application < Merb::Controller
 		end
 
 		def current_person
-			@current_person ||= (login_from_session || :false)
+			@current_person ||= (login_from_session || login_from_cookie || :false)
 		end
 
 		def current_person=(person)
@@ -22,6 +22,10 @@ class Application < Merb::Controller
 
 		def login_from_session
 			self.current_person = Person.get(session[:person]) if session[:person]
+		end
+		
+		def login_from_cookie
+			self.current_person = Person.first(:remember_token => cookies[:payload_of_love]) if cookies[:payload_of_love]
 		end
 
 		def login_required
