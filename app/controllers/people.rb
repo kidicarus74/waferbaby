@@ -53,6 +53,8 @@ class People < Application
 		@person = Person.new(person)
 		if @person.save
 			session[:message] = "Hell yeah! Welcome aboard."
+			
+			self.current_person = Person.authenticate(person[:username], person[:password])
 			redirect resource(@person)
 		else
 			render :new
@@ -63,7 +65,7 @@ class People < Application
 		@person = Person.first(:username => username)
 		raise NotFound unless @person && @person == current_person
 
-		if @person.update_attributes(person, :display_name, :profile)
+		if @person.update_attributes(person, :display_name, :email_address, :profile)
 			redirect resource(@person)
 		else
 			display @person, :edit
