@@ -31,6 +31,10 @@ class Application < Merb::Controller
 		def login_required
 			authorized? || throw(:halt, :access_denied)
 		end
+		
+		def admin_required
+			(logged_in? && current_person.has_permission(:admin)) || raise(NotFound)
+		end
 
 		def this_is_mine(item)
 			item.person == current_person
