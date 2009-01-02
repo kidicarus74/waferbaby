@@ -1,6 +1,6 @@
 #
-# =>    comments.rb
-# =>    Copyright (c) 2008 Daniel Bogan. http://waferbaby.com/
+#	comments.rb
+#	Copyright (c) 2008-2009 Daniel Bogan. http://waferbaby.com/
 #
 
 class Comments < Application

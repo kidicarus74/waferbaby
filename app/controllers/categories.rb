@@ -1,6 +1,6 @@
 #
-# =>    categories.rb
-# =>    Copyright (c) 2008 Daniel Bogan. http://waferbaby.com/
+#	categories.rb
+#	Copyright (c) 2008-2009 Daniel Bogan. http://waferbaby.com/
 #
 
 class Categories < Application

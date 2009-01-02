@@ -1,6 +1,6 @@
 #
-# =>    interviews.rb
-# =>    Copyright (c) 2008 Daniel Bogan. http://waferbaby.com/
+#	interviews.rb
+#	Copyright (c) 2008-2009 Daniel Bogan. http://waferbaby.com/
 #
 
 class Interviews < Application

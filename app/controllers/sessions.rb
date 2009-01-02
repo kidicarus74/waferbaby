@@ -1,6 +1,6 @@
 #
-# =>    sessions.rb
-# =>    Copyright (c) 2008 Daniel Bogan. http://waferbaby.com/
+#	sessions.rb
+#	Copyright (c) 2008-2009 Daniel Bogan. http://waferbaby.com/
 #
 
 class Sessions < Application

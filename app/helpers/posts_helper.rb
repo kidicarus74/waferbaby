@@ -1,6 +1,6 @@
 #
-# =>    posts_helper.rb
-# =>    Copyright (c) 2008 Daniel Bogan. http://waferbaby.com/
+#	posts_helper.rb
+#	Copyright (c) 2008-2009 Daniel Bogan. http://waferbaby.com/
 #
 
 module Merb
