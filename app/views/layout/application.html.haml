@@ -19,11 +19,14 @@
           %li.login= link_to("Log in", url(:login), :title => "Sign into your account.")
           %li.signup= link_to("Sign up", url(:signup), :title => "Carve your name into the community.")
         - else
-          %li.you= link_to(tag('strong', name_for_person(current_person)), resource(current_person), :title => "View and edit your profile.")
+          %li.you= link_to("You!", resource(current_person), :title => "View and edit your profile.")
           %li.profile= link_to("Profile", resource(current_person, :edit))
           %li.logout= link_to("Log out", url(:logout), :title => "Don't leave me!")
     #content
       - unless session[:message].blank?
         %p#message= session_message 
       = catch_content :for_layout
-    %p#footer= "We eat bandwidth for breakfast (#{link_to("More", url(:about), :title => "The most useless page like, wow, evar.")})."
+    %p#footer
+      = "We eat bandwidth for breakfast (", link_to("More", url(:about), :title => "The most useless page like, wow, evar."), "). "
+      = "Hosted by ", link_to("Segpub", "http://www.segpub.net/", :title => "Really good hosting."), "."
+      = "The site's source code is up for grabs at ", link_to("Github", "http://github.com/waferbaby/waferbaby/tree/master"), "."
