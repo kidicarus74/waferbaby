@@ -4,5 +4,4 @@
       %span.month= @person.created_month_short_name
       %span.day= @person.created_day  
     = link_to_person(@person)
-  .contents
-    %p Summary goes here, eventually.
+  %p.summary= @person.username
