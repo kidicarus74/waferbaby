@@ -1,0 +1,6 @@
+= form_for(@post, :action => action) do
+  = fieldset(:legend => "Basics") do
+    = text_field(:title, :label => "Post title:"), self_closing_tag('br')
+  = fieldset(:legend => "Content") do
+    %pre= text_area(:contents), self_closing_tag('br')
+    = submit('Go go go')

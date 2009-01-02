@@ -1,0 +1,5 @@
+- throw_content :title, "Editing the post #{@post.title}"
+= display_errors_for(@post)
+
+%h2= "Editing the post #{@post.title}"
+= partial :form, :with => url(:post, @post), :as => :action

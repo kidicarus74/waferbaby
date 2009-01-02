@@ -1,0 +1,5 @@
+- throw_content :title, "Editing the interview with #{@interview.title}"
+= display_errors_for(@interview)
+
+%h2= "Editing the interview with #{@interview.title}"
+= partial :form, :with => url(:interview, @interview), :as => :action

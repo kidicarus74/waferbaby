@@ -1,0 +1,5 @@
+- throw_content :title, "Create an interview"
+= display_errors_for(@interview)
+
+%h2 Create an interview
+= partial :form, :with => url(:interviews), :as => :action

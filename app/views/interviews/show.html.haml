@@ -1,0 +1,4 @@
+- throw_content :title, "#{h(@interview.title)} on waferbaby"
+%h2= "An interview with ", @interview.title
+%p= @interview.summary
+= markup(@interview.contents)
