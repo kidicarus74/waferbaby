@@ -9,14 +9,15 @@ color: #fff;
 }
 
 a.date {
-width: 50px;
+width: 30px;
 float: left;
 display: block;
 padding: 5px;
-margin-right: 20px;
+margin: 0 20px 10px 0;
 background-color: #eee;
 text-align: center;
 text-transform: uppercase;
+font-size: 80%;
 }
 
 a.date span.day {
@@ -67,12 +68,12 @@ color: #aaa;
 
 div.item {
 clear: both;
-padding: 15px 0;
+padding: 10px 0 0 0;
 border-top: solid 1px #eee;
 }
 
 div.contents {
-margin-left: 80px;
+margin-left: 60px;
 }
 
 div.paginated {
@@ -180,6 +181,11 @@ legend {
 text-transform: uppercase;
 font-size: 140%;
 color: #333;
+}
+
+p + div.item {
+border-top: 0;
+padding-top: 0;
 }
 
 p#footer {
