@@ -14,7 +14,7 @@ class Comment
         property :updated_at,   DateTime        
         
         belongs_to :person
-        has n,                  :posts, :through => Resource
+        has n,			:posts, :through => Resource
 
 	is_paginated
 
