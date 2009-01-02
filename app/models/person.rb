@@ -35,6 +35,7 @@ class Person
         has n, :comments
         has n, :posts
         has n, :scrawls
+	has n, :permissions, :through => Resource
         
         attr_accessor :password, :password_confirmation
         
@@ -71,6 +72,16 @@ class Person
 	def forget_me
 		self.remember_token = nil
 		self.save
+	end
+	
+	def has_permission(permission_name)
+		return false if self.permissions.empty?
+		
+		self.permissions.each do |permission|
+			return true if permission.name == permission_name.to_s
+		end
+		
+		false
 	end
 
         protected
