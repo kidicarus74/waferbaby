@@ -14,9 +14,13 @@ class Comment
         property :updated_at,   DateTime        
         
         belongs_to :person
-        belongs_to :post
+        has n,                  :posts, :through => Resource
 
 	is_paginated
 
 	validates_present       :contents
+	
+	before :save do
+		self.uuid = UUID.generate
+	end
 end
