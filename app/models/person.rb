@@ -38,7 +38,10 @@ class Person
         
         attr_accessor :password, :password_confirmation
         
-        before :save, :assign_uuid
+        before :save do
+		self.uuid = UUID.generate
+	end
+	
         before :save, :encrypt_password
         
         def authenticated?(clear_password)
@@ -82,9 +85,5 @@ class Person
                 
                 def encrypt_password
                         self.crypted_password = Password.create(self.password) unless self.password.blank?
-                end
-                
-                def assign_uuid
-                        self.uuid = UUID.generate
-                end
+                end                
 end
