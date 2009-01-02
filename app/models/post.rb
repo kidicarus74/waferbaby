@@ -21,7 +21,6 @@ class Post
         
         has n,                  :categories, :through => Resource
         has n,                  :comments, :through => Resource
-        belongs_to              :person
         
         validates_is_unique     :slug
         validates_present       :title, :contents
@@ -30,7 +29,7 @@ class Post
         
         before :save do
                 if new_record?
-                        self.uuid = UUID.generate                        
+                        self.uuid = UUID.generate
                         self.slug = Iconv.iconv('ascii//translit//IGNORE', 'utf-8', self.title).to_s
 
                         self.slug.gsub!(/\W+/, ' ')
