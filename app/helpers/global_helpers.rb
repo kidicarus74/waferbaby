@@ -23,10 +23,6 @@ module Merb
 			tag('ul', messages, :class => error_class)
 		end
 
-		def summary(str)
-			str.slice(/^(.+)\n\n/).strip
-		end
-
 		def session_message
 			message = session[:message]
 			session[:message] = nil
