@@ -12,6 +12,7 @@
       %h1= link_to("waferbaby", url(:default), :title => "View the latest drivel.")
       %ul.navigation#main
         %li.people= link_to("People", url(:people), :title => "Them humans what make the site good.")
+        %li.thesetup= link_to("The Setup", url(:interviews), :title => "Tapping into people's software and hardware love.")
         %li.wallscrawl= link_to("'scrawl", url(:scrawls), :title => "The voice of the unwashed masses.")
       %ul.navigation#person
         - unless logged_in?
