@@ -1,6 +1,8 @@
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
-
+  resources :permissions
+  resources :questions
+  resources :answers
 	# general routes.
 	
         match('/about').to(:controller => 'help', :action => 'about').name(:about)
@@ -9,8 +11,9 @@ Merb::Router.prepare do
         match('/logout').to(:controller => 'sessions', :action => 'destroy').name(:logout)
         match('/signup').to(:controller => 'people', :action => 'new').name(:signup)
 
-	# special case for wallscrawl dates.
+	# special cases.
 
+	match("/setup/:created_year(/:created_month(/:created_day))", :created_year => /^\d{4,}$/, :created_month => /^\d{2,}$/, :created_day => /^\d{2,}$/).to(:controller => 'interviews', :action => 'index_by_date')
 	match("/wallscrawl/:created_year(/:created_month(/:created_day))", :created_year => /^\d{4,}$/, :created_month => /^\d{2,}$/, :created_day => /^\d{2,}$/).to(:controller => 'scrawls', :action => 'index_by_date')
 
 	# flexible route for any index_by_date calls.
@@ -22,6 +25,10 @@ Merb::Router.prepare do
 	match("/people/:character", :character => /^[A-Za-z0-9]$/).to(:controller => 'people', :action => 'index_by_letter_or_number')	
 
 	# resource routes.
+	
+	identify Interview => [:created_year, :created_month, :created_day, :slug] do
+		resources(:interviews, :path => 'setup')
+	end
 	
 	identify Person => :username do
         	resources(:people)
