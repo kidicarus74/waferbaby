@@ -6,6 +6,7 @@
 require 'categories_helper'
 
 class Posts < Application
+	before :admin_required, :only => [:new, :edit, :delete, :update, :destroy]
         provides :atom, :text, :xml
 
         def index
@@ -40,4 +41,48 @@ class Posts < Application
                 
                 render :show
         end
+
+	def new
+		only_provides :html
+		@post = Post.new
+		display @post
+	end
+
+	def edit(slug)
+		only_provides :html
+		@post = Post.first(:slug => slug)
+		raise NotFound unless @post
+		display @post
+	end
+
+	def create(post)
+		@post = Post.new(post)
+		if @post.save
+			redirect resource(@post)
+		else
+			session[:message] = "Post failed to be created"
+			render :new
+		end
+	end
+
+	def update(slug, post)
+		@post = Post.first(:slug => slug)
+		raise NotFound unless @post
+		if @post.update_attributes(post)
+			redirect resource(@post)
+		else
+			display @post, :edit
+		end
+	end
+
+	def destroy(slug)
+		@post = Post.first(:slug => slug)
+		raise NotFound unless @post
+		if @post.destroy
+			redirect resource(:posts)
+		else
+			raise InternalServerError
+		end
+	end
+
 end
