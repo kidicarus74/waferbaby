@@ -9,20 +9,20 @@ color: #fff;
 }
 
 a.date {
-width: 30px;
+width: 25px;
 float: left;
 display: block;
-padding: 5px;
+padding: 3px;
 margin: 0 20px 10px 0;
 background-color: #eee;
 text-align: center;
 text-transform: uppercase;
-font-size: 80%;
+font-size: 70%;
 }
 
 a.date span.day {
 color: #999;
-font-size: 140%;
+font-size: 130%;
 }
 
 a.date span.month {
@@ -64,6 +64,7 @@ float: left;
 width: 100%;
 background-color: #101010;
 color: #aaa;
+border-bottom: solid 10px #0099ff;
 }
 
 div.item {
@@ -73,7 +74,7 @@ border-top: solid 1px #eee;
 }
 
 div.contents {
-margin-left: 60px;
+margin-left: 55px;
 }
 
 div.paginated {
@@ -124,7 +125,7 @@ padding-left: 10px;
 
 h1 {
 float: left;
-padding: 20px;
+padding: 15px;
 margin: 0;
 color: #0099ff;
 font-size: 200%;
@@ -149,6 +150,10 @@ font-size: 130%;
 h2 + div.item {
 padding-top: 10px;
 border-top: 0;
+}
+
+h2 + p {
+margin-bottom: 20px;
 }
 
 h3 {
@@ -235,7 +240,7 @@ padding: 5px 0;
 ul.navigation {
 list-style: none inside;
 padding: 0;
-margin: 28px 20px 0 0;
+margin: 24px 20px 0 0;
 text-transform: uppercase;
 font-size: 80%;
 }
