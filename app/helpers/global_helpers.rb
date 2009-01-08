@@ -16,11 +16,11 @@ module Merb
 			markdown.to_html
 		end
 
-		def display_errors_for(object, error_class='errors')
+		def display_errors_for(object)
 			return if object.errors.length < 1
 
 			messages = "\n", object.errors.full_messages.collect { |message| tag('li', message) }.join("\n"), "\n"                        
-			tag('ul', messages, :class => error_class)
+			tag('ul', messages, :id => 'message')
 		end
 
 		def session_message
