@@ -12,7 +12,7 @@ a.date {
 width: 25px;
 float: left;
 display: block;
-padding: 3px;
+padding: 4px;
 margin: 0 20px 10px 0;
 background-color: #eee;
 text-align: center;
@@ -55,7 +55,7 @@ font-size: 90%;
 div#content {
 clear: left;
 min-width: 200px;
-max-width: 600px;
+max-width: 680px;
 padding: 15px 20px 50px 40px;
 }
 
@@ -111,9 +111,8 @@ margin: 0 0 20px 0;
 }
 
 form {
-padding: 15px;
+padding: 30px;
 margin: 15px 0;
-font-size: 80%;
 background-color: #f1f1f1;
 color: #222;
 }
@@ -121,6 +120,7 @@ color: #222;
 form span {
 color: #888;
 padding-left: 10px;
+font-size: 90%;
 }
 
 h1 {
@@ -168,22 +168,23 @@ padding: 1px;
 border: solid 2px #000;
 }
 
-input {
-padding: 2px;
-margin: 0 0 8px 0;
-border: solid 1px #aaa;
+input[type=password], input[type=text] {
+margin: 2px 0 10px 0;	
+}
+
+input[type=checkbox] {
+float: left;
+padding: 0;
+margin: 0 10px 0 0;
 }
 
 input[type=submit] {
-background-color: #fff;
 margin: 10px 10px 0 0;
-text-transform: uppercase;
 }
 
 label {
-float: left;
-width: 130px;
-padding: 5px;
+display: block;
+padding: 5px 0 5px 0;
 margin-right: 10px;
 }
 
@@ -206,17 +207,8 @@ color: #888;
 font-size: 80%;
 }
 
-p#message, ul.errors {
-list-style: none inside;
-padding: 10px;
-margin-bottom: 20px;
-background-color: #eee;
-border: solid 1px #ccc;
-font-size: 80%;
-}
-
 p.summary {
-padding: 5px 0 0 0;
+padding: 5px 0 0 54px;
 margin: 0;
 color: #888;
 font-size: 80%;
@@ -235,6 +227,18 @@ font-size: 80%;
 
 ul li {
 padding: 5px 0;
+}
+
+ul#message {
+list-style: none inside;
+}
+
+ul.errors {
+list-style: none inside;
+padding: 15px;
+margin-bottom: 20px;
+background-color: #fdda96;
+font-size: 110%;
 }
 
 ul.navigation {
@@ -265,4 +269,12 @@ font-size: 100%;
 
 ul.navigation#person {
 text-align: right;
+}
+
+#message {
+padding: 15px;
+margin-bottom: 20px;
+background-color: #fdda96;
+border: solid 1px #c9ad78;
+font-size: 110%;
 }
