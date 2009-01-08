@@ -1,4 +1,4 @@
 - throw_content :title, "#{h(@interview.title)} on waferbaby"
 %h2= "An interview with ", @interview.title
-%p= @interview.summary
+%p= image_tag('setup/' + @interview.slug + '.jpg', :width => 500, :height => 335, :class => 'setup')
 = markup(@interview.contents)
