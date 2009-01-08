@@ -4,5 +4,5 @@
 = form(:action => url(:login)) do
   = text_field(:name => "username", :label => "Username:"), self_closing_tag('br')
   = password_field(:name => "password", :label => "Password:"), self_closing_tag('br')
-  = check_box(:name => "remember_me", :label => "Remember my details:"), tag('span', "Only do this on your own computer, yeah? It'll remember you for 2 weeks."), self_closing_tag('br')
+  = check_box(:remember_me, :label => "Remember me (for two weeks)"), self_closing_tag('br')
   = submit('Log in')
