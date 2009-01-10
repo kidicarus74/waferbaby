@@ -17,6 +17,11 @@ font-family: sans-serif;
 font-size: 14px;
 }
 
+code {
+background-color: #eee;
+font-size: 90%;
+}
+
 div#comments {
 margin-top: 30px;
 font-size: 90%;
@@ -25,8 +30,8 @@ font-size: 90%;
 div#content {
 clear: left;
 min-width: 200px;
-max-width: 500px;
-padding: 15px 20px 50px 40px;
+max-width: 502px;
+padding: 15px 40px;
 }
 
 div#header {
@@ -39,7 +44,7 @@ border-bottom: solid 10px #0099ff;
 
 div.item {
 clear: both;
-padding: 15px 0 5px 0;
+padding: 15px 0 10px 0;
 border-top: solid 1px #eee;
 }
 
@@ -126,12 +131,11 @@ h3 {
 padding: 0;
 margin: 0;
 color: #000;
-font-size: 130%;
+font-size: 150%;
 }
 
 img {
-padding: 1px;
-border: solid 2px #000;
+border: solid 1px #000;
 }
 
 input[type=password], input[type=text] {
@@ -177,7 +181,7 @@ p.summary {
 padding: 5px 0 0 0;
 margin: 0;
 color: #888;
-font-size: 90%;
+font-size: 110%;
 }
 
 p.summary a {
