@@ -7,11 +7,11 @@ module Merb
 	module GlobalHelpers
 		include Merb::PeopleHelper
 
-		def markup(string)
+		def markup(string, filter_html = true, filter_styles = true)
 			markdown = RDiscount.new(string)
 
-			markdown.filter_html = true
-			markdown.filter_styles = true
+			markdown.filter_html = filter_html
+			markdown.filter_styles = filter_styles
 
 			markdown.to_html
 		end
@@ -43,7 +43,7 @@ module Merb
 
 			result
 		end
-
+		
 		def date_url_for(object, prefix)
 			"/#{prefix}/#{object.created_year}/#{object.created_month}/#{object.created_day}"
 		end
