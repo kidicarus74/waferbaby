@@ -1,9 +1,5 @@
 .item.scrawl{:id => "at-#{@scrawl.created_time}"}
-  %h3
-    %a.date{:href => date_url_for(@scrawl, 'wallscrawl') + "#at-#{@scrawl.created_time}", :title => "Permalink for this scrawl."}
-      %span.month= @scrawl.created_month_short_name
-      %span.day= @scrawl.created_day  
-    = link_to_person(@scrawl.person)
-  %p.summary= @scrawl.person.username
+  %h3= link_to_person(@scrawl.person)
+  %p.summary= link_to(time_ago_in_words(@scrawl.created_at) + " ago.", date_url_for(@scrawl, 'wallscrawl') + "#at-#{@scrawl.created_time}", :title => "Permalink for this scrawl.")  
   .contents
     = markup(@scrawl.contents)

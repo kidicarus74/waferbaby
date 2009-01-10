@@ -1,14 +1,6 @@
 .item.post{:id => 'post-' + @post.id.to_s}
-  %h3
-    %a.date{:href => date_url_for(@post, 'posts'), :title => "View all posts from #{@post.created_month_short_name} #{@post.created_day}, #{@post.created_year}."}
-      %span.month= @post.created_month_short_name
-      %span.day= @post.created_day
-    - if @post.is_selected
-      = @post.title
-    - else
-      = link_to(@post.title, resource(@post), :title => "View '#{h(@post.title)}'.")
-  %p.summary
-    = "There #{@post.comments.length == 1 ? "is" : "are"} #{link_to("#{@post.comments.length == 0 ? 'no' : @post.comments.length} comment#{'s' if @post.comments.length != 1}", resource(@post) + "#comments")} on this post."
+  %h3= @post.is_selected ? @post.title : link_to(@post.title, resource(@post), :title => "View '#{h(@post.title)}'.")
+  %p.summary= link_to(time_ago_in_words(@post.created_at) + " ago.", date_url_for(@post, 'posts'), :title => "View posts from #{@post.created_month_short_name} #{@post.created_day}, #{@post.created_year}.")  
   .contents
     = markup(@post.contents)
   - if @post.is_selected

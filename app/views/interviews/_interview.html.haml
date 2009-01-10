@@ -1,7 +1,3 @@
 .item.interview
-  %h3
-    %a.date{:href => date_url_for(@interview, 'setup'), :title => "View all interviews from #{@interview.created_month_short_name} #{@interview.created_day}, #{@interview.created_year}."}
-      %span.month= @interview.created_month_short_name
-      %span.day= @interview.created_day
-      = link_to(@interview.title, resource(@interview), :title => "View '#{h(@interview.title)}'.")
-  %p.summary= @interview.summary
+  %h3= link_to(@interview.title, resource(@interview), :title => "View '#{h(@interview.title)}'.")
+  %p.summary= link_to(time_ago_in_words(@interview.created_at) + " ago.", date_url_for(@interview, 'setup'), :title => "View interviews from #{@interview.created_month_short_name} #{@interview.created_day}, #{@interview.created_year}.")
