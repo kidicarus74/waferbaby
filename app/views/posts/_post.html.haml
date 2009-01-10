@@ -2,7 +2,7 @@
   %h3= @post.is_selected ? @post.title : link_to(@post.title, resource(@post), :title => "View '#{h(@post.title)}'.")
   %p.summary= link_to(time_ago_in_words(@post.created_at) + " ago.", date_url_for(@post, 'posts'), :title => "View posts from #{@post.created_month_short_name} #{@post.created_day}, #{@post.created_year}.")  
   .contents
-    = markup(@post.contents)
+    = markup(@post.contents, false)
   - if @post.is_selected
     #comments
       %h2= "Comments (#{link_to("Add", url(:new_post_comment), :title => "Add a comment.")})"
