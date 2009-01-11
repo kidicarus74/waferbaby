@@ -20,6 +20,7 @@ class Person
 	property :display_name,			String
         property :email_address, 		String, :format => :email_address
 	property :remember_token,		String, :length => 70
+	property :has_icon,			Boolean
 	property :profile,			Text, :lazy => false
         property :created_at, 			DateTime
         property :updated_at, 			DateTime
