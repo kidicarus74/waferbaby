@@ -36,8 +36,6 @@ namespace :waferbaby do
 			Person.all.each do |p|
 				hash = Digest::MD5.hexdigest(p.email_address)
 				
-				puts "Attempting to grab icon for #{p.email_address} (#{hash})"
-				
 				begin
 					data = Net::HTTP.get('gravatar.com', "/avatar/#{hash}.jpg?r=x&d=_")
 					if data.blank?
