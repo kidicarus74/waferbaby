@@ -11,11 +11,7 @@ module Merb
 		end
 		
 		def link_to_person(person)
-			link_to(name_for_person(person), url(:person, person), :title => "View more about '#{h(person.username)}'.")
-		end
-		
-		def link_to_person_icon(person, width = 40, height = 40)
-			link_to(icon_for_person(person, width, height), url(:person, person), :title => "View more about '#{h(person.username)}'.")
+			link_to("#{icon_for_person(person)} #{name_for_person(person)}", url(:person, person), :title => "View more about '#{h(person.username)}'.")
 		end
 		
 		def icon_for_person(person, width = 40, height = 40)
