@@ -46,6 +46,10 @@ class Person
 	
         before :save, :encrypt_password
         
+	def username
+		attribute_get(:username).downcase
+	end
+	
         def authenticated?(clear_password)
                 # start migration code
                 if self.old_crypted_password
