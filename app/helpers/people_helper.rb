@@ -14,12 +14,12 @@ module Merb
 			link_to(name_for_person(person), url(:person, person), :title => "View more about '#{h(person.username)}'.")
 		end
 		
-		def link_to_person_icon(person, width = 32, height = 32)
+		def link_to_person_icon(person, width = 40, height = 40)
 			link_to(icon_for_person(person, width, height), url(:person, person), :title => "View more about '#{h(person.username)}'.")
 		end
 		
-		def icon_for_person(person, width = 32, height = 32)
-			image_tag("people/#{person.username}.jpg", :width => width, :height => height, :alt => name_for_person(person))
+		def icon_for_person(person, width = 40, height = 40)
+			image_tag("people/#{person.has_icon ? person.username : '_default'}.jpg", :width => width, :height => height, :alt => name_for_person(person), :class => 'icon')
 		end
         end
 end
