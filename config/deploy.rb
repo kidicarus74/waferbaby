@@ -13,9 +13,10 @@ role :db,  "waferbaby.com", :primary => true
 role :web, "waferbaby.com"
 
 namespace :deploy do  
-        desc "Link up the database.yml file."
+        desc "Link up share content."
         task :after_update_code do
-                run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml" 
+                run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+		run "ln -Fs #{shared_path}/public/images/people/ #{release_path}/public/images/people" 
         end
         
         desc "Restart Merb."
