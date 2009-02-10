@@ -27,6 +27,11 @@ margin-top: 30px;
 font-size: 90%;
 }
 
+div#comments img.icon {
+width: 35px;
+height: 35px;
+}
+
 div#content {
 clear: left;
 min-width: 200px;
@@ -136,6 +141,11 @@ font-size: 150%;
 
 img {
 border: solid 1px #000;
+}
+
+img.icon {
+float: left;
+margin: 0 15px 10px 0;
 }
 
 input[type=password], input[type=text] {
