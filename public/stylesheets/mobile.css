@@ -3,14 +3,14 @@ a {
 }
 
 body {
--webkit-text-size-adjust: 240%;
+-webkit-text-size-adjust: 250%;
 }
 
 div#content {
 max-width: 100%;
 }
 
-p.summary {
+p.date {
 font-size: 80%;
 }
 
@@ -30,6 +30,12 @@ font-size: 100%;
 
 h3 {
 font-size: 110%;
+}
+
+img.icon {
+width: 80px;
+height: 80px;
+margin-right: 30px;
 }
 
 input[type=password], input[type=text]{
