@@ -22,6 +22,6 @@ namespace :deploy do
         desc "Restart Merb."
         task :restart, :roles => :app do
                 run "cd /usr/local/www/apps/waferbaby/current;/usr/local/bin/merb -K all"
-                run "/usr/local/bin/merb -d -a thin -e production -m /usr/local/www/apps/waferbaby/current"
+                run "/usr/local/bin/merb -d -a thin -e production -c 8 -m /usr/local/www/apps/waferbaby/current"
         end
 end
