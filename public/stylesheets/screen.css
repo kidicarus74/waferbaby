@@ -49,7 +49,7 @@ border-bottom: solid 10px #0099ff;
 
 div.item {
 clear: both;
-padding: 15px 0 10px 0;
+padding: 15px 0;
 border-top: solid 1px #eee;
 }
 
@@ -140,7 +140,7 @@ font-size: 150%;
 }
 
 img {
-border: solid 1px #000;
+border: 0;
 }
 
 img.icon {
@@ -188,7 +188,7 @@ font-size: 80%;
 }
 
 p.date {
-padding: 5px 0 0 0;
+padding: 7px 0 0 0;
 margin: 0;
 color: #888;
 font-size: 90%;
