@@ -1,5 +1,5 @@
 .item.comment{:id => "comment-at-#{@comment.created_time}"}
   %h3= link_to_person(@comment.person)
-  %p.summary= link_to(time_ago_in_words(@comment.created_at) + " ago.", @parent_path + "#comment-at-#{@comment.created_time}", :title => "Permalink for this comment.")
+  %p.date= link_to(time_ago_in_words(@comment.created_at) + " ago.", @parent_path + "#comment-at-#{@comment.created_time}", :title => "Permalink for this comment.")
   .contents
     = markup(@comment.contents)

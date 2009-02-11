@@ -4,7 +4,7 @@
       = "#{@post.title} (#{@post.comments.length})"
     - else
       = link_to(@post.title, resource(@post), :title => "View '#{h(@post.title)}'."), " ", link_to("(#{@post.comments.length})", resource(@post) + "#comments", :title => "View comments for '#{h(@post.title)}'.")
-  %p.summary= link_to(time_ago_in_words(@post.created_at) + " ago.", date_url_for(@post, 'posts'), :title => "View posts from #{@post.created_month_short_name} #{@post.created_day}, #{@post.created_year}.")
+  %p.date= link_to(time_ago_in_words(@post.created_at) + " ago.", date_url_for(@post, 'posts'), :title => "View posts from #{@post.created_month_short_name} #{@post.created_day}, #{@post.created_year}.")
   .contents
     = markup(@post.contents, false)
   - if @post.is_selected
