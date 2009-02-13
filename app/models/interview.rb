@@ -12,6 +12,7 @@ class Interview
         property :slug,         String
         property :title,        String
 	property :summary,	String
+	property :credits,	String
 	property :contents,	Text
         property :created_at,   DateTime
         property :updated_at,   DateTime
