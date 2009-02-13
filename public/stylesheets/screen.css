@@ -99,6 +99,10 @@ padding-left: 10px;
 font-size: 90%;
 }
 
+form#editor textarea {
+height: 300px;
+}
+
 h1 {
 float: left;
 padding: 15px;
@@ -148,6 +152,10 @@ float: left;
 margin: 0 15px 10px 0;
 }
 
+img.setup {
+margin-bottom: 5px;
+}
+
 input[type=password], input[type=text] {
 margin: 2px 0 10px 0;	
 }
@@ -188,14 +196,24 @@ font-size: 80%;
 }
 
 p.date {
-padding: 7px 0 0 0;
+padding: 5px 0 0 0;
 margin: 0;
 color: #888;
-font-size: 90%;
+font-size: 100%;
 }
 
 p.date a {
 color: #999;
+}
+
+p.summary {
+float: left;
+font-size: 85%;
+}
+
+span.credits {
+font-size: 85%;
+color: #555;
 }
 
 textarea {
