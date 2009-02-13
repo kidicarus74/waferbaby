@@ -1,8 +1,9 @@
-= form_for(@interview, :action => action) do
+= form_for(@interview, :action => action, :id => 'editor') do
   = fieldset(:legend => "Basics") do
     = text_field(:title, :label => "Person's name:"), self_closing_tag('br')
     = text_field(:slug, :label => "URL slug:"), self_closing_tag('br')
     = text_field(:summary, :label => "A brief summary:"), self_closing_tag('br')
+    = text_field(:credits, :label => "Interview/photo credits (if any):"), self_closing_tag('br')
   = fieldset(:legend => "Content") do
     %pre= text_area(:contents), self_closing_tag('br')
     = submit('Go go go')
