@@ -1,8 +1,5 @@
 - throw_content :title, "#{h(@interview.title)} on waferbaby"
 %h2= "An interview with ", @interview.title
-%p
-  = image_tag('setup/' + @interview.slug + '.jpg', :width => 500, :height => 335, :class => 'setup')
-  - unless @interview.credits.blank?
-    %br
-    %span.credits= @interview.credits
+= image_tag('setup/' + @interview.slug + '.jpg', :width => 500, :height => 335, :class => 'setup', :alt => @interview.title)
+= markup('<cite>' + @interview.credits + '</cite>', false) unless @interview.credits.blank?
 = markup(@interview.contents)
