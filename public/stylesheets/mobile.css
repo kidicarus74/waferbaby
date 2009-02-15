@@ -16,8 +16,8 @@ font-size: 80%;
 
 h1 {
 float: none;
-font-size: 200%;
-border-bottom: solid 1px #333;
+font-size: 180%;
+border-bottom: solid 1px #444;
 }
 
 h1:after {
@@ -48,10 +48,13 @@ width: 250px;
 
 ul.navigation#main {
 font-size: 80%;
-margin: 22px;
+margin: 15px 22px 5px 22px;
 }
 
 ul.navigation#person {
-font-size: 65%;
-margin: 24px;
+clear: left;
+text-align: left;
+font-size: 70%;
+padding-top: 10px;
+margin: 0 22px 20px 22px;
 }
