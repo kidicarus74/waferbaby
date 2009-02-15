@@ -47,7 +47,10 @@ class Person
         before :save, :encrypt_password
         
 	def username
-		attribute_get(:username).downcase
+		u = attribute_get(:username)
+		u.downcase unless u.blank?
+		
+		u
 	end
 	
         def authenticated?(clear_password)
