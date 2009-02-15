@@ -48,7 +48,7 @@ class Person
         
 	def username
 		u = attribute_get(:username)
-		u.downcase unless u.blank?
+		u.downcase! unless u.blank?
 		
 		u
 	end
