@@ -276,6 +276,8 @@ font-size: 100%;
 
 ul.navigation#person {
 text-align: right;
+text-transform: none;
+font-size: 90%;
 }
 
 #message {
