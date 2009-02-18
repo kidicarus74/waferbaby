@@ -20,7 +20,7 @@ class Post
 	is_paginated
         
         has n,                  :categories, :through => Resource
-        has n,                  :comments, :through => Resource
+        has n,                  :comments, :through => Resource#, :child_key => [:comment_id]
         
         validates_is_unique     :slug
         validates_present       :title, :contents
