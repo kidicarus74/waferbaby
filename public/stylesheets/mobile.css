@@ -6,8 +6,9 @@ body {
 -webkit-text-size-adjust: 250%;
 }
 
-div#content {
-max-width: 100%;
+div#airlock {
+	margin: 0;
+width: 100%;
 }
 
 p.date {
@@ -32,6 +33,12 @@ h3 {
 font-size: 110%;
 }
 
+form span {
+display: block;
+font-size: 70%;
+padding: 0;
+}
+
 img.icon {
 width: 80px;
 height: 80px;
@@ -43,18 +50,18 @@ input[type=password], input[type=text]{
 }
 
 label {
-width: 250px;
+font-size: 80%;
+}
+
+legend {
+font-size: 100%;
 }
 
 ul.navigation#main {
+	padding: 0 20px 20px 20px;
 font-size: 80%;
-margin: 15px 22px 5px 22px;
 }
 
 ul.navigation#person {
-clear: left;
-text-align: left;
-font-size: 70%;
-padding-top: 10px;
-margin: 0 22px 20px 22px;
+font-size: 75%;
 }
