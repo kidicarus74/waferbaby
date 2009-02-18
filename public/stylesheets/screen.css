@@ -11,15 +11,24 @@ color: #fff;
 body {
 padding: 0;
 margin: 0;
-background-color: #fff;
+background-color: #444;
 color: #000;
 font-family: sans-serif;
 font-size: 14px;
+text-align: center;
 }
 
 code {
 background-color: #eee;
 font-size: 90%;
+}
+
+div#airlock {
+width: 580px;
+margin: 20px auto;
+background-color: #000;
+text-align: left;
+border: solid 1px #000;
 }
 
 div#comments {
@@ -32,19 +41,11 @@ width: 35px;
 height: 35px;
 }
 
-div#content {
+div#face {
 clear: left;
-min-width: 200px;
-max-width: 502px;
-padding: 15px 40px;
-}
-
-div#header {
-float: left;
-width: 100%;
-background-color: #101010;
-color: #aaa;
-border-bottom: solid 10px #0099ff;
+padding: 20px 40px;
+background-color: #fff;
+border-top: solid 10px #0099ff;
 }
 
 div.item {
@@ -195,7 +196,7 @@ padding-top: 0;
 p#footer {
 clear: left;
 padding: 0;
-margin: 10px 40px;
+margin: 10px 20px;
 color: #888;
 font-size: 80%;
 }
@@ -264,9 +265,6 @@ margin: 0;
 
 ul.navigation li a {
 display: inline;
-text-align: center;
-color: #fff;
-padding: 5px;
 }
 
 ul.navigation#main {
@@ -274,10 +272,25 @@ float: left;
 font-size: 100%;
 }
 
+ul.navigation#main li a {
+color: #fff;
+padding: 5px;
+}
+
 ul.navigation#person {
-text-align: right;
+float: right;
 text-transform: none;
 font-size: 90%;
+padding: 0;
+margin: 10px 0;
+}
+
+ul.navigation#person li:before {
+content: "/ ";
+}
+
+ul.navigation#person li:first-child:before {
+content: "";
 }
 
 #message {
