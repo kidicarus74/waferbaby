@@ -8,25 +8,25 @@
       %link{:href => "http://waferbaby.com" + catch_content(:feed) + ".atom", :type => 'application/atom+xml', :rel => 'alternate', :title => "Atom feed"}
     %meta{:name => "viewport", :content => "width=760"}
   %body
-    #airlock
+    #header
       %h1= link_to("waferbaby", url(:default), :title => "View the latest drivel.")
       %ul.navigation#main
         %li.people= link_to("People", url(:people), :title => "Them humans what make the site good.")
-        %li.thesetup= link_to("The Setup", url(:interviews), :title => "Tapping into people's software and hardware love.")
+        %li.the_setup= link_to("The Setup", url(:interviews), :title => "Tapping into people's software and hardware love.")
         %li.wallscrawl= link_to("'scrawl", url(:scrawls), :title => "The voice of the unwashed masses.")
-      #face
-        %ul.navigation#person
-          - unless logged_in?
-            %li.login= link_to("Log in", url(:login), :title => "Sign into your account.")
-            %li.signup= link_to("Sign up", url(:signup), :title => "Carve your name into the community.")
-          - else
-            %li.you= link_to("You!", resource(current_person), :title => "View and edit your profile.")
-            %li.profile= link_to("Profile", resource(current_person, :edit))
-            %li.logout= link_to("Log out", url(:logout), :title => "Don't leave me!")
-        - unless session[:message].blank?
-          %p#message= session_message 
-        = catch_content :for_layout
-      %p#footer
-        = "We eat bandwidth for breakfast (", link_to("More", url(:about), :title => "The most useless page like, wow, evar."), "). "
-        = "Hosted by ", link_to("Segpub", "http://www.segpub.net/", :title => "Really good hosting."), "."
-        = "The site's source code is up for grabs at ", link_to("Github", "http://github.com/waferbaby/waferbaby/tree/master"), "."
+      %ul.navigation#person
+        - unless logged_in?
+          %li.login= link_to("Log in", url(:login), :title => "Sign into your account.")
+          %li.signup= link_to("Sign up", url(:signup), :title => "Carve your name into the community.")
+        - else
+          %li.you= link_to("You!", resource(current_person), :title => "View and edit your profile.")
+          %li.profile= link_to("Profile", resource(current_person, :edit))
+          %li.logout= link_to("Log out", url(:logout), :title => "Don't leave me!")      
+    #content
+      - unless session[:message].blank?
+        %p#message= session_message 
+      = catch_content :for_layout
+    %p#footer
+      = "We eat bandwidth for breakfast (", link_to("More", url(:about), :title => "The most useless page like, wow, evar."), "). "
+      = "Hosted by ", link_to("Segpub", "http://www.segpub.net/", :title => "Really good hosting."), "."
+      = "The site's source code is up for grabs at ", link_to("Github", "http://github.com/waferbaby/waferbaby/tree/master"), "."
