@@ -6,9 +6,18 @@ body {
 -webkit-text-size-adjust: 250%;
 }
 
-div#airlock {
-	margin: 0;
-width: 100%;
+div#content {
+max-width: 100%;
+}
+
+div#header {
+border-bottom: solid 20px #0099ff;
+}
+
+form span {
+display: block;
+font-size: 70%;
+padding: 0;
 }
 
 p.date {
@@ -17,8 +26,9 @@ font-size: 80%;
 
 h1 {
 float: none;
-font-size: 180%;
-border-bottom: solid 1px #444;
+font-size: 200%;
+padding: 15px 25px;
+border-bottom: solid 1px #333;
 }
 
 h1:after {
@@ -33,12 +43,6 @@ h3 {
 font-size: 110%;
 }
 
-form span {
-display: block;
-font-size: 70%;
-padding: 0;
-}
-
 img.icon {
 width: 80px;
 height: 80px;
@@ -50,18 +54,30 @@ input[type=password], input[type=text]{
 }
 
 label {
+width: auto;
+margin-top: 10px;
 font-size: 80%;
 }
-
+ 
 legend {
 font-size: 100%;
 }
 
+textarea {
+width: 95%;
+}
+
 ul.navigation#main {
-	padding: 0 20px 20px 20px;
-font-size: 80%;
+font-size: 90%;
+padding: 25px;
+margin: 0;
 }
 
 ul.navigation#person {
-font-size: 75%;
+position: absolute;
+top: 10px;
+right: 0;
+padding: 0;
+margin: 40px 20px;
+font-size: 70%;
 }
