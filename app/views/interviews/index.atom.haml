@@ -5,4 +5,14 @@
 - throw_content :updated, @interviews[0].updated_at
 
 - @interviews.each do |@interview|
-  = partial :interview
+  %entry
+    %title= @interview.title
+    %id= "urn:uuid:#{@interview.uuid}"
+    %link{:href => "http://waferbaby.com" + resource(@interview)}
+    %updated= @interview.updated_at
+    %published= @interview.created_at
+    %author
+      %name waferbaby
+    %content{:type => "xhtml"}
+      %div{:xmlns => "http://www.w3.org/1999/xhtml"}
+        = markup(@interview.contents, false)
