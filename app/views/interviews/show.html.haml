@@ -1,5 +1,8 @@
 - throw_content :title, "#{h(@interview.title)} on waferbaby"
-%h2= "An interview with ", @interview.title
-= image_tag('setup/' + @interview.slug + '.jpg', :width => 500, :height => 335, :class => 'setup', :alt => @interview.title)
+%h2 This Setup
+%h3= "An interview with ", @interview.title
+%p.date= link_to(time_ago_in_words(@interview.created_at) + " ago.", date_url_for(@interview, 'setup'), :title => "View interviews from #{@interview.created_month_short_name} #{@interview.created_day}, #{@interview.created_year}.")
+
+%p= image_tag('setup/' + @interview.slug + '.jpg', :width => 500, :height => 335, :class => 'setup', :alt => @interview.title)
 = markup('<cite>' + @interview.credits + '</cite>', false) unless @interview.credits.blank?
 = markup(@interview.contents, false)
