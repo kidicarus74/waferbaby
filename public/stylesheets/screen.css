@@ -35,7 +35,7 @@ height: 35px;
 div#content {
 clear: left;
 min-width: 200px;
-max-width: 502px;
+max-width: 500px;
 padding: 15px 40px;
 }
 
@@ -127,7 +127,7 @@ border-bottom: solid 1px #ddd;
 font-size: 130%;
 }
 
-h2 + div.item {
+h2 + h3, h2 + div.item {
 padding-top: 10px;
 border-top: 0;
 }
@@ -150,15 +150,6 @@ border: 0;
 img.icon {
 float: left;
 margin: 0 15px 10px 0;
-}
-
-img.setup + h3 {
-margin-top: 15px;
-}
-
-img.setup + p {
-text-align: right;
-margin-top: 5px;
 }
 
 input[type=password], input[type=text] {
@@ -255,6 +246,10 @@ margin: 24px 20px 0 0;
 text-transform: uppercase;
 color: #222;
 font-size: 80%;
+}
+
+ul.navigation:hover {
+color: #999;
 }
 
 ul.navigation li {
