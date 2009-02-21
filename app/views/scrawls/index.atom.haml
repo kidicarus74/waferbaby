@@ -5,4 +5,14 @@
 - throw_content :updated, @scrawls[0].updated_at
 
 - @scrawls.each do |@scrawl|
-  = partial :scrawl
+  %entry
+    %title= name_for_person(@scrawl.person)
+    %id= "urn:uuid:#{@scrawl.uuid}"
+    %link{:href => "http://waferbaby.com" + date_url_for(@scrawl, 'wallscrawl') + "#at-#{@scrawl.created_time}"}
+    %updated= @scrawl.updated_at
+    %published= @scrawl.created_at
+    %author
+      %name= name_for_person(@scrawl.person)
+    %content{:type => "xhtml"}
+      %div{:xmlns => "http://www.w3.org/1999/xhtml"}
+        = markup(@scrawl.contents)
