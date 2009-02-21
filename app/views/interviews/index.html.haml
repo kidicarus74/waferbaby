@@ -7,7 +7,10 @@
       = "in #{date_title}"
   %p What do people use to get the job done?
   - @interviews.each do |@interview|
-    = partial :interview
+    .item.interview
+      %h3= link_to("#{icon_for_interview(@interview)} #{@interview.title}", resource(@interview), :title => "View '#{h(@interview.title)}'.")
+      %p.date= link_to(time_ago_in_words(@interview.created_at) + " ago.", date_url_for(@interview, 'setup'), :title => "View interviews from #{@interview.created_month_short_name} #{@interview.created_day}, #{@interview.created_year}.")
+      %p.summary= @interview.summary
   = paginate(params[:page] ? params[:page].to_i : 1, @count, :default_css => false) if @count > 1
 - else
   %h2 Aw, I'm sorry!
