@@ -6,7 +6,7 @@
 
 - @people.each do |@person|
   %entry
-    %title= @person.username
+    %title= name_for_person(@person)
     %id= "urn:uuid:#{@person.uuid}"
     %link{:href => "http://waferbaby.com" + resource(@person)}
     %updated= @person.updated_at
