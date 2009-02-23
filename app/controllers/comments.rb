@@ -7,7 +7,7 @@ class Comments < Application
 	before :login_required, :only => [:new, :edit, :delete, :create, :update, :destroy]
 	
 	def index
-		@comments = Comment.all
+		@count, @comments = Comment.paginated(:order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
 		display @comments
 	end
 
@@ -36,7 +36,7 @@ class Comments < Application
 		render
 	end
 
-	def create(comment, slug)
+	def create(slug, comment)
 		@post = Post.first(:slug => slug)
 		
 		@comment = Comment.new(comment)
