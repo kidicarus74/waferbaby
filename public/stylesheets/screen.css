@@ -230,8 +230,9 @@ border: solid 1px #aaa;
 }
 
 ul {
-padding: 5px 30px;
-font-size: 80%;
+padding: 2px 30px;
+font-size: 90%;
+color: #555;
 }
 
 ul li {
