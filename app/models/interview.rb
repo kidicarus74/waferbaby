@@ -19,6 +19,9 @@ class Interview
         property :updated_at,   DateTime
 
 	is_paginated
+	
+	validates_is_unique     :slug
+        validates_present       :title, :contents
 
 	before :save do
                 self.uuid = UUID.generate
