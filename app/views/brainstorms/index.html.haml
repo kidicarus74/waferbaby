@@ -1,0 +1,15 @@
+- throw_content :title, "Brainstorm on waferbaby"
+- unless @brainstorms.length < 1
+  - throw_content :feed, "/branstorm"
+  %h2
+    Brainstorms
+    - if params["created_year"]
+      = "from #{date_title}"
+  - @brainstorms.each do |@brainstorm|
+    .item.brainstorm
+      %h3= link_to(@brainstorm.title, resource(@brainstorm), :title => "View '#{h(@brainstorm.title)}'.")
+      %p.date= link_to(time_ago_in_words(@brainstorm.created_at) + " ago.", date_url_for(@brainstorm, 'brainstorm'), :title => "View brainstorms from #{@brainstorm.created_month_short_name} #{@brainstorm.created_day}, #{@brainstorm.created_year}.")
+  = paginate(params[:page] ? params[:page].to_i : 1, @count, :default_css => false) if @count > 1
+- else
+  %h2 Aw, I'm sorry!
+  %p There's no brainstorms here.

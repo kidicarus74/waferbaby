@@ -1,0 +1,7 @@
+= display_errors_for(@answer)
+
+%h2 Add an answer
+%p= "You are answering '#{link_to(@brainstorm.title, resource(@brainstorm), :title => "View '#{h(@brainstorm.title)}'.")}'."
+= form_for(@answer, :action => url(:brainstorm_answers)) do
+  = text_area(:contents), self_closing_tag('br')
+  = submit('Comment')

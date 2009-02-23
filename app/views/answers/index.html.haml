@@ -1,0 +1,7 @@
+- @answers.each do |@answer|
+  .item.answer{:id => "answer-at-#{@answer.created_time}"}
+    %h4= link_to_person(@answer.person)
+    %p.date= link_to(time_ago_in_words(@answer.created_at) + " ago.", url(:brainstorm, @answer.brainstorm) + "#answer-at-#{@answer.created_time}", :title => "Permalink for this answer.")
+    .contents
+      = markup(@answer.contents)
+= paginate(params[:page] ? params[:page].to_i : 1, @count, :default_css => false) if @count > 1

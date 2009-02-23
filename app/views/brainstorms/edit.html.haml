@@ -1,0 +1,5 @@
+- throw_content :title, "Editing #{@brainstorm.title}"
+= display_errors_for(@brainstorm)
+
+%h2= "Editing #{@brainstorm.title}"
+= partial :form, :with => url(:brainstorm, @brainstorm), :as => :action

@@ -1,0 +1,5 @@
+= form_for(@brainstorm, :action => action, :id => 'editor') do
+  = fieldset(:legend => "Basics") do
+    = text_field(:title, :label => "Question:"), self_closing_tag('br')
+    = text_field(:slug, :label => "URL slug:"), self_closing_tag('br')
+    = submit('Go go go')
