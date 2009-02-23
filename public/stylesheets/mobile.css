@@ -36,10 +36,14 @@ content: "v5m";
 }
 
 h2 {
-font-size: 100%;
+font-size: 130%;
 }
 
 h3 {
+font-size: 120%;
+}
+
+h4 {
 font-size: 110%;
 }
 
@@ -68,7 +72,7 @@ width: 95%;
 }
 
 ul.navigation#main {
-font-size: 90%;
+font-size: 75%;
 padding: 25px;
 margin: 0;
 }
