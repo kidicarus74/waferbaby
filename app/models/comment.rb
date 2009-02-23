@@ -5,6 +5,6 @@
 
 class Comment < Entry
 	
-        has n,	:posts, :through => Resource
+        has 1, :post, :through => Resource
 
 end
