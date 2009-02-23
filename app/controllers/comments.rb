@@ -7,7 +7,7 @@ class Comments < Application
 	before :login_required, :only => [:new, :edit, :delete, :create, :update, :destroy]
 	
 	def index
-		@count, @comments = Comment.paginated(:order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
+		@count, @comments = Comment.paginated(:order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => 10)
 		display @comments
 	end
 

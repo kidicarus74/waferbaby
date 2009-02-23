@@ -8,7 +8,7 @@ class Brainstorms < Application
 	provides :atom, :text, :xml
 
 	def index
-		@count, @brainstorms = Brainstorm.paginated(:order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
+		@count, @brainstorms = Brainstorm.paginated(:order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => 10)
 		display @brainstorms
 	end
 
@@ -17,7 +17,7 @@ class Brainstorms < Application
                 created_day   = '__' if created_day   == nil
                 
                 date = "#{created_year}-#{created_month}-#{created_day}%"
-                @count, @brainstorms = Brainstorm.paginated(:created_at.like => date, :order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
+                @count, @brainstorms = Brainstorm.paginated(:created_at.like => date, :order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => 10)
                 
                 display @brainstorms, :index
         end
@@ -28,7 +28,7 @@ class Brainstorms < Application
 
 		# Not super happy with this, but it works for now.
 		
-		@count, @brainstorm.answers = @brainstorm.answers.all.paginated(:page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
+		@count, @brainstorm.answers = @brainstorm.answers.all.paginated(:page => params[:page] ? params[:page].to_i : 1, :per_page => 10)
 
                 render :show
         end

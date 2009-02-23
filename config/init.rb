@@ -29,5 +29,3 @@ end
 Merb::BootLoader.before_app_loads do
         Merb.add_mime_type(:atom, :to_atom, %w[application/atom+xml])
 end
-
-PAGE_SIZE = 10

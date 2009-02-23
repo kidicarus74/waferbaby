@@ -7,7 +7,7 @@ class Answers < Application
 	before :login_required, :only => [:new, :edit, :delete, :create, :update, :destroy]
 	
 	def index
-		@count, @answers = Answer.paginated(:order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
+		@count, @answers = Answer.paginated(:order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => 10)
 		display @answers
 	end
 

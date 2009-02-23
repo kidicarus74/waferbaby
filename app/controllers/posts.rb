@@ -10,7 +10,7 @@ class Posts < Application
         provides :atom, :text, :xml
 
         def index
-                @count, @posts = Post.paginated(:order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
+                @count, @posts = Post.paginated(:order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => 5)
                 display @posts
         end
         
@@ -19,7 +19,7 @@ class Posts < Application
                 created_day   = '__' if created_day   == nil
                 
                 date = "#{created_year}-#{created_month}-#{created_day}%"
-                @count, @posts = Post.paginated(:created_at.like => date, :order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
+                @count, @posts = Post.paginated(:created_at.like => date, :order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => 5)
                 
                 display @posts, :index
         end

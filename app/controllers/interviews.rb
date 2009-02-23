@@ -8,7 +8,7 @@ class Interviews < Application
 	provides :atom, :text, :xml
 
 	def index
-		@count, @interviews = Interview.paginated(:order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
+		@count, @interviews = Interview.paginated(:order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => 10)
 		display @interviews
 	end
 
@@ -17,7 +17,7 @@ class Interviews < Application
                 created_day   = '__' if created_day   == nil
                 
                 date = "#{created_year}-#{created_month}-#{created_day}%"
-                @count, @interviews = Interview.paginated(:created_at.like => date, :order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
+                @count, @interviews = Interview.paginated(:created_at.like => date, :order => [:created_at.desc], :page => params[:page] ? params[:page].to_i : 1, :per_page => 10)
                 
                 display @interviews, :index
         end
