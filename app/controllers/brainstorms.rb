@@ -28,7 +28,7 @@ class Brainstorms < Application
 
 		# Not super happy with this, but it works for now.
 		
-		@count, @brainstorm.answers = @brainstorm.answers.paginated(:page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
+		@count, @brainstorm.answers = @brainstorm.answers.all.paginated(:page => params[:page] ? params[:page].to_i : 1, :per_page => PAGE_SIZE)
 
                 render :show
         end
