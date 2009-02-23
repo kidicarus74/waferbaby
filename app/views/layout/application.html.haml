@@ -11,6 +11,7 @@
     #header
       %h1= link_to("waferbaby", url(:default), :title => "View the latest drivel.")
       %ul.navigation#main
+        %li.brainstorm= link_to("Brainstorm", url(:brainstorms), :title => "Questions and the answers that love them.")
         %li.people= link_to("People", url(:people), :title => "Them humans what make the site good.")
         %li.the_setup= link_to("The Setup", url(:interviews), :title => "Tapping into people's software and hardware love.")
         %li.wallscrawl= link_to("'scrawl", url(:scrawls), :title => "The voice of the unwashed masses.")
