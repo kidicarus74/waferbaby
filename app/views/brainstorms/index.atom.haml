@@ -1,0 +1,17 @@
+- throw_content :title, "Brainstorm on waferbaby"
+- throw_content :uuid, "4be96105-29d9-49cf-80b3-a17b5dc02ebc"
+- throw_content :url, "/brainstorm"
+- throw_content :author, "Everyone on waferbaby"
+- throw_content :updated, @brainstorms[0].updated_at
+
+- @brainstorms.each do |@brainstorm|
+  %entry
+    %title= @brainstorm.title
+    %id= "urn:uuid:#{@brainstorm.uuid}"
+    %link{:href => "http://waferbaby.com" + resource(@brainstorm)}
+    %updated= @brainstorm.updated_at
+    %published= @brainstorm.created_at
+    %author
+      %name waferbaby
+    %content{:type => "xhtml"}
+      %div{:xmlns => "http://www.w3.org/1999/xhtml"}
