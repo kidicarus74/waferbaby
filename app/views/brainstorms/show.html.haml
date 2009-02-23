@@ -2,10 +2,16 @@
 %h2 Here's a question
 %h3= "#{@brainstorm.title} (#{link_to("Answer", url(:new_brainstorm_answer), :title => "Add your own thoughts.")})"
 %p.date= link_to(time_ago_in_words(@brainstorm.created_at) + " ago.", date_url_for(@brainstorm, 'brainstorm'), :title => "View brainstorms from #{@brainstorm.created_month_short_name} #{@brainstorm.created_day}, #{@brainstorm.created_year}.")
-- @brainstorm.answers.each do |@answer|
-  .item.answer{:id => "answer-at-#{@answer.created_time}"}
-    %h4= link_to_person(@answer.person)
-    %p.date= link_to(time_ago_in_words(@answer.created_at) + " ago.", url(:brainstorm, @brainstorm) + "#answer-at-#{@answer.created_time}", :title => "Permalink for this answer.")
-    .contents
-      = markup(@answer.contents)
-= paginate(params[:page] ? params[:page].to_i : 1, @count, :default_css => false) if @count > 1
+- unless @brainstorm.answers.length < 1
+  - @brainstorm.answers.each do |@answer|
+    .item.answer{:id => "answer-at-#{@answer.created_time}"}
+      %h4= link_to_person(@answer.person)
+      %p.date= link_to(time_ago_in_words(@answer.created_at) + " ago.", url(:brainstorm, @brainstorm) + "#answer-at-#{@answer.created_time}", :title => "Permalink for this answer.")
+      .contents
+        = markup(@answer.contents)
+  = paginate(params[:page] ? params[:page].to_i : 1, @count, :default_css => false) if @count > 1
+- else
+  %p Be the first to answer!
+
+
+
