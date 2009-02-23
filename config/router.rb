@@ -1,8 +1,6 @@
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
-  resources :permissions
-  resources :questions
-  resources :answers
+
 	# general routes.
 	
         match('/about').to(:controller => 'help', :action => 'about').name(:about)
@@ -13,6 +11,7 @@ Merb::Router.prepare do
 
 	# special cases.
 
+	match("/brainstorm/:created_year(/:created_month(/:created_day))", :created_year => /^\d{4,}$/, :created_month => /^\d{2,}$/, :created_day => /^\d{2,}$/).to(:controller => 'brainstorms', :action => 'index_by_date')
 	match("/setup/:created_year(/:created_month(/:created_day))", :created_year => /^\d{4,}$/, :created_month => /^\d{2,}$/, :created_day => /^\d{2,}$/).to(:controller => 'interviews', :action => 'index_by_date')
 	match("/wallscrawl/:created_year(/:created_month(/:created_day))", :created_year => /^\d{4,}$/, :created_month => /^\d{2,}$/, :created_day => /^\d{2,}$/).to(:controller => 'scrawls', :action => 'index_by_date')
 
@@ -28,6 +27,12 @@ Merb::Router.prepare do
 	
 	identify Interview => [:created_year, :created_month, :created_day, :slug] do
 		resources(:interviews, :path => 'setup')
+	end
+	
+	identify Brainstorm => [:created_year, :created_month, :created_day, :slug] do
+        	resources(:brainstorms, :path => 'brainstorm') do |b|
+			b.resources(:answers)
+		end
 	end
 	
 	identify Person => :username do
