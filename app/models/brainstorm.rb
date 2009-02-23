@@ -17,7 +17,7 @@ class Brainstorm
 
 	is_paginated
 
-	has n,                  :answers, :through => Resource
+	has n,                  :answers, :order => [:created_at.desc], :through => Resource
 
 	validates_is_unique     :slug
         validates_present       :title
