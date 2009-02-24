@@ -1,5 +1,5 @@
 module Merb
-  module BrainstormsHelper
-
-  end
-end # Merb
+	module BrainstormsHelper
+		include Merb::AnswersHelper
+	end
+end
