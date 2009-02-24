@@ -25,6 +25,8 @@ Merb::Router.prepare do
 
 	# resource routes.
 	
+	resources(:entries, :path => 'activity')
+	
 	identify Interview => [:created_year, :created_month, :created_day, :slug] do
 		resources(:interviews, :path => 'setup')
 	end
@@ -36,7 +38,9 @@ Merb::Router.prepare do
 	end
 	
 	identify Person => :username do
-        	resources(:people)
+        	resources(:people) do |p|
+			p.resource('entry', :path => 'activity')
+		end
 	end
 
 	identify Post => [:created_year, :created_month, :created_day, :slug] do
@@ -52,4 +56,5 @@ Merb::Router.prepare do
 	# default.
 
         match('/').to(:controller => 'posts', :action => 'index').name(:default)
+
 end
