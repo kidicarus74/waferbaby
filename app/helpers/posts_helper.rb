@@ -5,5 +5,6 @@
 
 module Merb
         module PostsHelper
+		include Merb::CommentsHelper
         end
 end
