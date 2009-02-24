@@ -13,7 +13,7 @@ padding: 0;
 margin: 0;
 background-color: #fff;
 color: #000;
-font-family: sans-serif;
+font-family: helvetica, arial, sans-serif;
 font-size: 14px;
 }
 
@@ -258,10 +258,6 @@ margin: 24px 20px 0 0;
 text-transform: uppercase;
 color: #222;
 font-size: 80%;
-}
-
-ul.navigation:hover {
-color: #999;
 }
 
 ul.navigation li {
