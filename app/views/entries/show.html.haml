@@ -1,0 +1,5 @@
+- throw_content :title, "Activity from #{name_for_person(@person)} on waferbaby"
+%h2= "Activity from #{name_for_person(@person)}"
+- @entries.each do |@item|
+  = partial "#{@item.type.to_s.plural.downcase}/#{@item.type.to_s.downcase}"
+= paginate(params[:page] ? params[:page].to_i : 1, @count, :default_css => false) if @count > 1

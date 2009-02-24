@@ -1,0 +1,18 @@
+- throw_content :title, "Everyone's activity on waferbaby"
+- throw_content :uuid, "2116b2f1-cf1a-4836-b851-e6242b20570a"
+- throw_content :url, "/activity"
+- throw_content :author, "Everyone on waferbaby"
+- throw_content :updated, @entries[0].updated_at
+
+- @entries.each do |@item|
+  %entry
+    %title= name_for_person(@item.person)
+    %id= "urn:uuid:#{@item.uuid}"
+    %link{:href => "http://waferbaby.com" + send("url_for_#{@item.type.to_s.downcase}", @item)}
+    %updated= @item.updated_at
+    %published= @item.created_at
+    %author
+      %name waferbaby
+    %content{:type => "xhtml"}
+      %div{:xmlns => "http://www.w3.org/1999/xhtml"}
+        = markup(@item.contents)

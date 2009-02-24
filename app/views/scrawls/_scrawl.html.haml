@@ -1,0 +1,5 @@
+.item.scrawl{:id => "at-#{@item.created_time}"}
+  %h3= link_to_person(@item.person)
+  %p.date= link_to_scrawl(@item, time_ago_in_words(@item.created_at) + " ago.")
+  .contents
+    = markup(@item.contents)
