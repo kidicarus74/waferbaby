@@ -11,7 +11,7 @@ class Entry
         property :id,           Serial
         property :uuid,         String, :length => 36
 	property :type,		Discriminator
-        property :contents,     Text
+        property :contents,     Text, :lazy => false
         property :created_at,   DateTime
         property :updated_at,   DateTime        
         
