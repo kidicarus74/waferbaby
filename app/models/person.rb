@@ -36,6 +36,8 @@ class Person
         has n, :comments
         has n, :posts
         has n, :scrawls
+	
+	has n, :entries, :order => [:created_at.desc], :class_name => 'Entry'
 	has n, :permissions, :through => Resource
         
         attr_accessor :password, :password_confirmation
