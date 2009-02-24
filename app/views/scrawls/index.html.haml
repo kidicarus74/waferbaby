@@ -5,12 +5,8 @@
     Scrawls
     = "from #{date_title}" if params["created_year"]
     = " (#{link_to("Add", resource(:scrawls, :new), :title => "Add a scrawl.")})"
-  - @scrawls.each do |@scrawl|
-    .item.scrawl{:id => "at-#{@scrawl.created_time}"}
-      %h3= link_to_person(@scrawl.person)
-      %p.date= link_to(time_ago_in_words(@scrawl.created_at) + " ago.", date_url_for(@scrawl, 'wallscrawl') + "#at-#{@scrawl.created_time}", :title => "Permalink for this scrawl.")  
-      .contents
-        = markup(@scrawl.contents)
+  - @scrawls.each do |@item|
+    = partial :scrawl
   = paginate(params[:page] ? params[:page].to_i : 1, @count, :default_css => false) if @count > 1
 - else
   %h2 Aw, I'm sorry!
